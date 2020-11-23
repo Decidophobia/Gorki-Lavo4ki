@@ -42,10 +42,10 @@ function App() {
         </Route>
         <Route path="/district">
           <District />
+        </Route>
           <Route path="/blog">
             <Blog/>
           </Route>
-        </Route>
       </Switch>
     </div>
   );

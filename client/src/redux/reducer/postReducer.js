@@ -1,6 +1,9 @@
 import { GET_POSTS, ADD_POST } from '../actionTypes';
+const initialState = {
+  posts: []
+}
 
-export function postReducer(state = {}, action) {
+export function postReducer(state = initialState, action) {
   switch (action.type) {
     case GET_POSTS:
       return { ...state, posts: action.payload };

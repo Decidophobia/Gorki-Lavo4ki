@@ -76,6 +76,16 @@ export const fetchToProfileAC = () => {
   };
 };
 
+export const getPostsAC = (payload) => ({
+  type: GET_POSTS,
+  payload,
+});
+
+export const addPostAC = (payload) => ({
+  type: ADD_POST,
+  payload,
+});
+
 // add post to DB
 export const fetchAddPostAC = (payload) => {
   return (dispatch) => {
@@ -91,20 +101,10 @@ export const fetchAddPostAC = (payload) => {
   };
 };
 
-export const addPostAC = (payload) => ({
-  type: ADD_POST,
-  payload,
-});
-
-export const getPostsAC = (payload) => ({
-  type: GET_POSTS,
-  payload,
-});
-
 //fetch posts from DB
 export const fetchGetPostsAC = (payload) => {
   return (dispatch) => {
-    fetch('/post/getpost')
+    fetch('/post/getposts')
       .then((res) => res.json())
       .then((posts) => dispatch(getPostsAC(posts)));
   };
