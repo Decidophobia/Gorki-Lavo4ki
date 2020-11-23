@@ -7,5 +7,4 @@ export function loginReducer(state = null, action) {
 		default:
 			return state;
 	}
-
 }
