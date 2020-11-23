@@ -6,12 +6,6 @@ const passport = require('passport');
 const accessTokenSecret = require('../config/keys');
 
 
-// profile
-router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res) => {
-	console.log(req.headers);
-	res.json('Hello!!!');
-});
-
 // signup
 router.post('/signup', async (req, res) => {
 	console.log(req.body);
