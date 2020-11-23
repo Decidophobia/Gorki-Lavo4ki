@@ -6,6 +6,7 @@ import { postReducer } from './postReducer';
 import { accountReducer } from './accountReducer';
 import { voteReducer } from './voteReducer';
 
+
 export const rootReducer = combineReducers({
   signup: signupReducer,
   login: loginReducer,
@@ -13,4 +14,5 @@ export const rootReducer = combineReducers({
   post: postReducer,
   account: accountReducer,
   vote: voteReducer,
+  comment: commentReducer,
 });

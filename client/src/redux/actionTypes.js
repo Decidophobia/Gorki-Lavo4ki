@@ -7,3 +7,4 @@ export const GET_USER = 'GET_USER';
 export const ADD_VOTE = 'ADD_VOTE';
 export const ADD_LIKE = 'ADD_LIKE';
 export const ADD_DISLIKE = 'ADD_DISLIKE';
+export const ADD_COMMENT = 'ADD_COMMENT';

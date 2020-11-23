@@ -8,6 +8,7 @@ import {
   ADD_VOTE,
   ADD_LIKE,
   ADD_DISLIKE,
+  ADD_COMMENT,
 } from './actionTypes';
 
 const regexp = new RegExp(/\"/gm);
@@ -165,5 +166,10 @@ export const addLikeAC = (payload) => ({
 
 export const addDislikeAC = (payload) => ({
   type: ADD_DISLIKE,
+  payload,
+});
+
+export const addCommentAC = (payload) => ({
+  type: ADD_COMMENT,
   payload,
 });
