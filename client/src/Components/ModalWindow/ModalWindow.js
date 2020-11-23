@@ -42,7 +42,7 @@ function ModalWindow(props) {
 			title: title.current.value,
 			description: description.current.value,
 			photo: urlImage,
-			coord: props.placemarc,
+			coord: props.placemark,
 		};
 		await dispatch(fetchAddPostAC(post));
 		console.log(post);

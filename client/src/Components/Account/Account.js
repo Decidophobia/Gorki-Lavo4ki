@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {useDispatch} from 'react-redux'
 import {fetchGetUserAC} from '../../redux/actionCreators'
+
 function Account(props) {
 let user = JSON.parse(localStorage.getItem('name'))
 let dispatch = useDispatch()

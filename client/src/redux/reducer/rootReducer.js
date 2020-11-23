@@ -4,6 +4,7 @@ import { loginReducer } from './loginReducer';
 import { chatReducer } from './chatReducer';
 import { postReducer } from './postReducer';
 import { accountReducer} from './accountReducer';
+import {coordsReducer} from './coordsReducer';
 
 export const rootReducer = combineReducers({
   signup: signupReducer,
@@ -11,4 +12,5 @@ export const rootReducer = combineReducers({
   chat: chatReducer,
   post: postReducer,
   account: accountReducer,
+  coords: coordsReducer,
 });

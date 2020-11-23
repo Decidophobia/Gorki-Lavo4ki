@@ -4,7 +4,9 @@ import {
   SEND_MESSAGE,
   ADD_POST,
   GET_POSTS,
-  GET_USER
+  GET_USER,
+  GET_COORDS
+
 } from './actionTypes';
 
 const regexp = new RegExp(/\"/gm);
@@ -140,6 +142,19 @@ export const fetchGetUserAC = (payload) => {
       .then((res) => res.json())
       .then((result) => dispatch(getUserAC(result)));
   };
+};
+
+export const getCoords = (payload) => ({
+  type: GET_COORDS,
+  payload,
+});
+
+export const fetchGetCordsAC = (payload) => {
+	return (dispatch) => {
+		fetch('/map')
+			.then((res) => res.json())
+			.then((coords) => dispatch(getCoords(coords)));
+	};
 };
 
 // fetch('/account', {
