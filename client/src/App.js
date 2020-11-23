@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import { Signup } from "./Components/Signup/Signup";
 import { Login } from "./Components/Login/Login";
 import Chat from "./Components/Chat/Chat";
+import Account from "./Components/Account/Account";
 import MapPage from "./Components/Map/Map";
 import { YMaps } from "react-yandex-maps";
 import District from "./Components/District/District";
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/chat2">
           <Chat room={"room2"} />
+        </Route>
+        <Route path="/account">
+          <Account />
         </Route>
         <Route path="/map">
           <YMaps
