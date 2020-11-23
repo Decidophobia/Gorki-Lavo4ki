@@ -6,7 +6,8 @@ module.exports = function (app) {
 	const cors = require('cors');
 
 	const authRoute = require('../routes/auth');
-	const postRoute = require('../routes/post');
+  const postRoute = require('../routes/post');
+  const mapRoute = require('../routes/map');
 
 	// app.use(cors());
 	app.use(passport.initialize());
@@ -19,5 +20,6 @@ module.exports = function (app) {
 
 // routes
 	app.use('/auth', authRoute);
-	app.use('/post', postRoute);
+  app.use('/post', postRoute);
+  app.use('/map', mapRoute);
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import {
   Map,
@@ -12,10 +12,18 @@ import Chat from "../Chat/Chat";
 
 Modal.setAppElement("#root");
 
+
 function MapPage(props) {
   //в этом стэйте массив с массивами координат
   const [placemarc, setPlaceMark] = useState([]);
+
+  useEffect(() => {
+    fetch('/map')
+    .then(res => res.json())
+    .then(data => console.log(data))
   
+  }, [])
+
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
