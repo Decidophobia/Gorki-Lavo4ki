@@ -8,7 +8,7 @@ const userShema = Schema({
   name: {type: String, require: true},
   phone: {type: Number, require: true, unique: true},
   room: {type: Schema.Types.ObjectId, ref: 'Chat' },
-  pollutionRef: [ { type: Schema.Types.ObjectId, ref: 'Pollution' }]
+  postRef: [ { type: Schema.Types.ObjectId, ref: 'Post' }]
 });
 
 module.exports = mongoose.model("User", userShema);
