@@ -3,7 +3,8 @@ import { signupReducer } from './signupReducer';
 import { loginReducer } from './loginReducer';
 import { chatReducer } from './chatReducer';
 import { postReducer } from './postReducer';
-import { accountReducer} from './accountReducer';
+import { accountReducer } from './accountReducer';
+import { voteReducer } from './voteReducer';
 
 export const rootReducer = combineReducers({
   signup: signupReducer,
@@ -11,4 +12,5 @@ export const rootReducer = combineReducers({
   chat: chatReducer,
   post: postReducer,
   account: accountReducer,
+  vote: voteReducer,
 });
