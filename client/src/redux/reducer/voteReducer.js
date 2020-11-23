@@ -9,6 +9,6 @@ export function voteReducer(state = {}, action) {
     case ADD_DISLIKE:
       return { ...state, dislikes: action.payload };
     default:
-      state;
+      return state;
   }
 }
