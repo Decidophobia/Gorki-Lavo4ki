@@ -94,6 +94,7 @@ export const addPostAC = (payload) => ({
 // add post to DB
 export const fetchAddPostAC = (payload) => {
 	return (dispatch) => {
+		console.log(payload);
 		fetch('/post/addpost', {
 			method: 'POST',
 			headers: {
