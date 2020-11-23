@@ -9,19 +9,19 @@ import {
 import ModalWindow from "../ModalWindow/ModalWindow.js";
 import styles from "./Map.module.css";
 import Chat from "../Chat/Chat";
+import { useDispatch, useSelector} from 'react-redux'
+import {fetchGetCordsAC} from '../../redux/actionCreators'
 
 Modal.setAppElement("#root");
 
 
 function MapPage(props) {
   //в этом стэйте массив с массивами координат
-  const [placemarc, setPlaceMark] = useState([]);
+  const dispatch = useDispatch()
+  const [placemark, setPlaceMark] = useState([]);
 
   useEffect(() => {
-    fetch('/map')
-    .then(res => res.json())
-    .then(data => console.log(data))
-  
+    dispatch(fetchGetCordsAC())
   }, [])
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -31,7 +31,7 @@ function MapPage(props) {
   function closeModal() {
     setIsOpen(false);
   }
-
+  const coordForStaticPlacemark = useSelector((store) => store.coords)
   return (
     <>
       <div className={styles.containerWrap}>
@@ -59,8 +59,8 @@ function MapPage(props) {
               groupByCoordinates: false,
             }}
           >
-            {placemarc &&
-              placemarc.map((coordinates, index) => (
+            {placemark &&
+              placemark.map((coordinates, index) => (
                 <Placemark
                   onClick={null}
                   key={index}
@@ -76,12 +76,36 @@ function MapPage(props) {
                     iconLayout: "default#image",
                     preset: "islands#redStretchyIcon",
                     iconImageHref:
-                      "https://psv4.userapi.com/c856220/u8423482/docs/d4/a62869fdf7ee/placemark-06.png?extra=vfLVfiI9KJh8kPP143yaJMZHXyG1-PszB1QCpBhesI3Yo0CcPhYjkihP7JU7lZATowUotK2FMNFhmXsG-_vjU-mo3LtlPD6zBmatW_cmGr4PEIswQDlVTvla69SHqKK2BjWlVuKBSx4ojVHrrw",
+                    //ссылка сломалась, подставили пока ссылку на пнг картинку с марком
+                      // "https://psv4.userapi.com/c856220/u8423482/docs/d4/a62869fdf7ee/placemark-06.png?extra=vfLVfiI9KJh8kPP143yaJMZHXyG1-PszB1QCpBhesI3Yo0CcPhYjkihP7JU7lZATowUotK2FMNFhmXsG-_vjU-mo3LtlPD6zBmatW_cmGr4PEIswQDlVTvla69SHqKK2BjWlVuKBSx4ojVHrrw"
+                      'https://www.flaticon.com/svg/static/icons/svg/876/876213.svg',
                     iconImageSize: [45, 60],
                     iconImageOffset: [-20, -20],
                   }}
                 />
               ))}
+              { coordForStaticPlacemark && coordForStaticPlacemark.map((el, index) => (
+                 <Placemark
+                 key={index}
+                  geometry={el.coord[0]}
+                  properties={{
+                    iconContent: "Грязюка",
+                    balloonContentHeader:
+                      '<span class="description">Ваша отметка</span>',
+                    balloonContentBody: `Туть грязно`,
+                  }}
+                  options={{
+                    // preset: "islands#redStretchyIcon",
+                    iconLayout: "default#image",
+                    preset: "islands#redStretchyIcon",
+                    iconImageHref:
+                    //ссылка сломалась, подставили пока ссылку на пнг картинку с марком
+                      // "https://psv4.userapi.com/c856220/u8423482/docs/d4/a62869fdf7ee/placemark-06.png?extra=vfLVfiI9KJh8kPP143yaJMZHXyG1-PszB1QCpBhesI3Yo0CcPhYjkihP7JU7lZATowUotK2FMNFhmXsG-_vjU-mo3LtlPD6zBmatW_cmGr4PEIswQDlVTvla69SHqKK2BjWlVuKBSx4ojVHrrw"
+                      'https://www.flaticon.com/svg/static/icons/svg/876/876213.svg',
+                    iconImageSize: [45, 60],
+                    iconImageOffset: [-20, -20],
+                  }}
+                /> ))}
           </Clusterer>
           <GeolocationControl options={{ float: "left" }} />
         </Map>
@@ -94,7 +118,7 @@ function MapPage(props) {
           onRequestClose={closeModal}
           className={styles.modalWind}
         >
-          <ModalWindow placemarc={placemarc} closeModal={closeModal} />
+          <ModalWindow placemark={placemark} closeModal={closeModal} />
         </Modal>
       </div>
     </>

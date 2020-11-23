@@ -3,9 +3,12 @@ import styles from './ModalWindow.module.css';
 import {useDispatch} from 'react-redux';
 import {fetchAddPostAC} from '../../redux/actionCreators';
 
+const regexp = new RegExp(/\"/gm);
+
 function ModalWindow(props) {
 	const dispatch = useDispatch();
 	const description = useRef();
+	const title = useRef();
 
 	const [loading, setLoading] = useState(false);
 	const [urlImage, setUrlImage] = useState('');
@@ -35,9 +38,11 @@ function ModalWindow(props) {
 		event.preventDefault();
 
 		const post = {
+			authorID: localStorage.getItem('userId').replace(regexp, ''),
+			title: title.current.value,
 			description: description.current.value,
 			photo: urlImage,
-			coord: props.placemarc,
+			coord: props.placemark,
 		};
 		await dispatch(fetchAddPostAC(post));
 		console.log(post);
@@ -59,12 +64,13 @@ function ModalWindow(props) {
 						<button className={ styles.close } onClick={ props.closeModal }>
 							X
 						</button>
+						<input ref={ title } type="text" placeholder='Название проекта'/>
 						<textarea
 							className={ styles.textdescription }
 							ref={ description }
 							cols="30"
 							rows="5"
-							placeholder="Введите описание..."
+							placeholder="Описание проекта..."
 						/>
 						<button type="submit" className={ styles.save }>
 							Cохранить
