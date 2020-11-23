@@ -15,6 +15,9 @@ function Navbar(props) {
       <div className={styles.navbarItem}>
         <Link to="/login"> Sign in</Link>
       </div>
+      <div className={styles.navbarItem}>
+        <Link to="/account"> Account</Link>
+      </div>
     </div>
   );
 }
