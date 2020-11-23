@@ -1,7 +1,17 @@
 const router = require('express').Router();
 const Post = require('../models/Post');
 
-router.post('/', async (req, res) => {
+
+router.get('/getposts', async (req, res) => {
+	try {
+		const posts = await Post.find({});
+		res.status(200).json(posts);
+	} catch (err) {
+		res.status(404).json('Error!');
+	}
+});
+
+router.post('/addpost', async (req, res) => {
 	console.log(req.body);
 
 	try {
