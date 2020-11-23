@@ -6,6 +6,7 @@ import Chat from "./Components/Chat/Chat";
 import MapPage from "./Components/Map/Map";
 import { YMaps } from "react-yandex-maps";
 import District from "./Components/District/District";
+import Blog from './Components/Blog/Blog'
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route path="/district">
           <District />
+          <Route path="/blog">
+            <Blog/>
+          </Route>
         </Route>
       </Switch>
     </div>
