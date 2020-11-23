@@ -7,6 +7,7 @@ module.exports = function (app) {
 
 	const authRoute = require('../routes/auth');
 	const postRoute = require('../routes/post');
+	const accountRoute = require('../routes/account');
 
 	// app.use(cors());
 	app.use(passport.initialize());
@@ -20,4 +21,5 @@ module.exports = function (app) {
 // routes
 	app.use('/auth', authRoute);
 	app.use('/post', postRoute);
+	app.use('/account', accountRoute);
 };

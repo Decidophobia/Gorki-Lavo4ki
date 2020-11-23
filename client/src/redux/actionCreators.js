@@ -1,9 +1,10 @@
 import {
-	ADD_USER,
-	LOGIN_USER,
-	SEND_MESSAGE,
-	ADD_POST,
-	GET_POSTS,
+  ADD_USER,
+  LOGIN_USER,
+  SEND_MESSAGE,
+  ADD_POST,
+  GET_POSTS,
+  GET_USER
 } from './actionTypes';
 
 const regexp = new RegExp(/\"/gm);
@@ -120,3 +121,33 @@ export const sendMessageAC = (payload) => ({
 	type: SEND_MESSAGE,
 	payload,
 });
+
+
+export const getUserAC = (payload) => ({
+  type: GET_USER,
+  payload,
+});
+
+export const fetchGetUserAC = (payload) => {
+  return (dispatch) => {
+    fetch('/account', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((result) => dispatch(getUserAC(result)));
+  };
+};
+
+// fetch('/account', {
+//   method: 'POST',
+//   headers: {
+//     'Content-type': 'application/json',
+//   },
+//   body: JSON.stringify({user}),
+// })
+//   .then((res) => res.json())
+//   .then((result) => {console.log(result);});
