@@ -1,4 +1,4 @@
-import {ADD_USER, LOGIN_USER, SEND_MESSAGE, ADD_POLLUTION} from './actionTypes';
+import {ADD_USER, LOGIN_USER, SEND_MESSAGE, ADD_POST} from './actionTypes';
 
 // add user
 export const fetchAddUserAC = (payload) => {
@@ -71,13 +71,13 @@ export const fetchToProfileAC = () => {
 };
 
 
-// add pollution
+// add post
 
-export const fetchAddPollutionAC = (payload) => {
+export const fetchAddPostAC = (payload) => {
 
 	console.log(payload);
 	return (dispatch) => {
-		fetch('/pollution', {
+		fetch('/post', {
 			method: 'POST',
 			headers: {
 				'Content-type': 'application/json'
@@ -89,8 +89,8 @@ export const fetchAddPollutionAC = (payload) => {
 	};
 };
 
-export const addPollutionAC = (payload) => ({
-	type: ADD_POLLUTION,
+export const addPostAC = (payload) => ({
+	type: ADD_POST,
 	payload
 });
 
