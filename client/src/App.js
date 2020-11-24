@@ -11,7 +11,7 @@ import Blog from "./Components/Blog/Blog";
 
 function App() {
   return (
-    <div style={{ maxHeight: "100vh" }}>
+    <div style={{ maxHeight: "100vh", overflow: "hidden" }}>
       <Navbar />
       <Switch>
         <Route exact path="/">
