@@ -14,7 +14,7 @@ function District() {
           <div className={styles.mapItem2}>
             <span className={styles.district}>Петроградский</span>
           </div>
-          <Link className={styles.testLink} to="/map">
+          <Link className={styles.testLink} to="/map" room={'123'}>
             <div className={styles.mapItem3} onClick={null}>
               <span className={styles.district}>Василеостровский</span>
             </div>

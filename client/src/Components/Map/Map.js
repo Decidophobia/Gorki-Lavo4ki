@@ -109,7 +109,7 @@ function MapPage(props) {
           </Clusterer>
           <GeolocationControl options={{ float: "left" }} />
         </Map>
-        <Chat />
+        {/* <Chat /> */}
       </div>
 
       <div>
