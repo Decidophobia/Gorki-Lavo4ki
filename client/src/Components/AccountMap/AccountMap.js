@@ -5,7 +5,6 @@ import {
   Map,
   Placemark,
   Clusterer,
-  GeolocationControl,
 } from 'react-yandex-maps';
 
 function AccountMap() {
@@ -34,10 +33,12 @@ function AccountMap() {
               key={index}
               geometry={el.coord[0]}
               properties={{
-                iconContent: 'Грязюка',
+                // iconContent: "Грязюка",
                 balloonContentHeader:
-                  '<span class="description">Ваша отметка</span>',
-                balloonContentBody: `Туть грязно`,
+                  `<span class="description">${el.id}</span>`,
+                balloonContentBody:  `<span class="description">${el.description}</span>
+                <img src="${el.photo}" style="width: 50%; heigh: 35%"/>
+                `,
               }}
               options={{
                 // preset: "islands#redStretchyIcon",

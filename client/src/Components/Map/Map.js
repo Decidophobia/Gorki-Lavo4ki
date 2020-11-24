@@ -23,8 +23,8 @@ function MapPage() {
   let { coordId } = useParams();
 
   useEffect(() => {
-    setPoint(coordId.replace(/^:/, "").replace(/\s/g, "").split(","));
     dispatch(fetchGetCordsAC());
+    setPoint(coordId.replace(/^:/, "").replace(/\s/g, "").split(","));
   }, []);
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ function MapPage() {
     setIsOpen(false);
   }
   const coordForStaticPlacemark = useSelector((store) => store.coords);
-  if (point)
+ 
   return (
     <>
       <div className={styles.containerWrap}>
@@ -94,10 +94,12 @@ function MapPage() {
                   key={index}
                   geometry={el.coord[0]}
                   properties={{
-                    iconContent: "Грязюка",
+                    // iconContent: "Грязюка",
                     balloonContentHeader:
-                      '<span class="description">Ваша отметка</span>',
-                    balloonContentBody: `Туть грязно`,
+                      `<span class="description">${el.id}</span>`,
+                    balloonContentBody:  `<span class="description">${el.description}</span>
+                    <img src="${el.photo}" style="width: 50%; heigh: 35%"/>
+                    `,
                   }}
                   options={{
                     // preset: "islands#redStretchyIcon",
