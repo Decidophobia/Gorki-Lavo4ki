@@ -2,13 +2,6 @@ import React, { useEffect } from 'react';
 import styles from './District.module.css';
 import { Link } from 'react-router-dom';
 
-const districtCoord = [
-  { petragradka: [59.96679275244407, 30.28764753161611] },
-  { vaska: [59.94225600187256, 30.24679212390127] },
-  { central: [59.93628113088142, 30.35416631518544] },
-  { admeral: [59.91641957007944, 30.297346399413943] },
-];
-
 function District() {
   // useEffect(() => {
   //   fetch(

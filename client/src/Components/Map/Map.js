@@ -15,7 +15,7 @@ import { useParams } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
-function MapPage(props) {
+function MapPage({width ='1000px', height='800px'}) {
   //в этом стэйте массив с массивами координат
   const dispatch = useDispatch()
   const [placemark, setPlaceMark] = useState([]);
@@ -41,8 +41,8 @@ function MapPage(props) {
     <>
       <div className={styles.containerWrap}>
         <Map
-          width={"1000px"}
-          height={"800px"}
+          width={width}
+          height={height}
           defaultState={{
             center: point,
             zoom: 13,
