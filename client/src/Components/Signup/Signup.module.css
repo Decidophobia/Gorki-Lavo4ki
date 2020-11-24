@@ -7,7 +7,8 @@ body {
 }
 
 .mainPage {
-  margin-top: 60px;
+  margin: auto;
+  margin-top: 200px;
   width: 550px;
   max-height: 400px;
   background-color: rgba(132, 193, 93, 0.4);
@@ -17,6 +18,8 @@ body {
   border-radius: 10px 10px 10px 10px;
   align-self: flex-start;
   padding: 10px 15px 25px;
+  animation-duration: 3s;
+  animation-name: slidein;
 }
 .formBox {
   width: 100%;
@@ -73,4 +76,14 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 25px;
+}
+
+@keyframes slidein {
+  from {
+    margin-top: -100%;
+  }
+
+  to {
+    margin-top: 200px;
+  }
 }

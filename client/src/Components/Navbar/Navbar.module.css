@@ -1,11 +1,7 @@
 .navbarContainer {
-  height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
-  flex-direction: column;
-  width: 450px;
-  top: 0%;
-  left: 0;
 }
 .navbarContainer .navbarItem {
   padding: 40px 15px;

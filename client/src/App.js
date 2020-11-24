@@ -1,17 +1,18 @@
-import { Switch, Route } from 'react-router-dom';
-import Navbar from './Components/Navbar/Navbar';
-import { Signup } from './Components/Signup/Signup';
-import { Login } from './Components/Login/Login';
-import Chat from './Components/Chat/Chat';
-import Account from './Components/Account/Account';
-import MapPage from './Components/Map/Map';
-import { YMaps } from 'react-yandex-maps';
-import District from './Components/District/District';
-import Blog from './Components/Blog/Blog';
+import { Switch, Route } from "react-router-dom";
+import Navbar from "./Components/Navbar/Navbar";
+import { Signup } from "./Components/Signup/Signup";
+import { Login } from "./Components/Login/Login";
+import Chat from "./Components/Chat/Chat";
+import Account from "./Components/Account/Account";
+import MapPage from "./Components/Map/Map";
+import { YMaps } from "react-yandex-maps";
+import District from "./Components/District/District";
+import Blog from "./Components/Blog/Blog";
 
 function App() {
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ maxHeight: "100vh", overflow: "hidden" }}>
+
       <Navbar />
       <Switch>
         <Route exact path="/">
