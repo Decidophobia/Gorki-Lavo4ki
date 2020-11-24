@@ -11,7 +11,7 @@ import Blog from "./Components/Blog/Blog";
 
 function App() {
   return (
-    <div style={{ maxHeight: "100vh", overflow: "hidden" }}>
+    <div style={{ maxHeight: "100vh"}}>
 
       <Navbar />
       <Switch>
@@ -39,7 +39,8 @@ function App() {
           </YMaps>
         </Route>
         <Route path="/map/:coordId">
-          <YMaps
+<div className="wrapperDistrictPage">
+  <YMaps
             query={{
               ns: 'use-load-option',
               load:
@@ -49,6 +50,7 @@ function App() {
             <MapPage />
           </YMaps>
           <Chat />
+</div>
         </Route>
         <Route path="/district">
           <District />

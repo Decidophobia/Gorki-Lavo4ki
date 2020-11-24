@@ -2,17 +2,27 @@
   text-decoration: none;
   color: aliceblue;
 }
+
 .testLink:link {
   text-decoration: none;
-  color: aliceblue;
+  color: #1c3e5c;
+  transition: 0.2s;
 }
+
 .testLink:visited {
   text-decoration: none;
-  color: aliceblue;
+  color: #1c3e5c;
 }
+
 .testLink:active {
   text-decoration: none;
   color: aliceblue;
+}
+
+.testLink:hover {
+  font-size: 2.3rem;
+  transition: 0.2s ease;
+  text-shadow: 2px 2px 20px #ffffff;
 }
 
 .boxMap {
@@ -25,69 +35,87 @@
   box-shadow: 0px 0px 50px 10px #6c8a5c;
   margin: auto;
 }
+
 .map {
   display: flex;
-  color: aliceblue;
+  color: #1c3e5c;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: 'Balsamiq Sans', cursive;
   font-size: 2rem;
   cursor: pointer;
+  font-weight: 700;
+  cursor: pointer;
+  text-shadow: 2px 2px 5px #ffffff;
+  letter-spacing: 2px;
 }
+
 .mapItem1 {
   position: absolute;
   top: 5%;
   left: 20%;
 }
+
 .mapItem2 {
   position: absolute;
   left: 25%;
   top: 32%;
 }
+
 .mapItem3 {
   position: absolute;
   left: 10%;
   top: 54%;
 }
+
 .mapItem4 {
   position: absolute;
   left: 40%;
   top: 57%;
 }
+
 .mapItem5 {
   position: absolute;
   left: 26%;
   top: 72%;
 }
+
 .mapItem6 {
   position: absolute;
   left: 15%;
   top: 90%;
 }
+
 .mapItem7 {
   position: absolute;
   left: 33%;
   top: 90%;
 }
+
 .mapItem8 {
   position: absolute;
   left: 47%;
   top: 83%;
 }
+
 .mapItem9 {
   position: absolute;
   left: 80%;
   top: 70%;
 }
+
 .mapItem10 {
   position: absolute;
   left: 75%;
   top: 30%;
 }
+
 .mapItem11 {
   position: absolute;
   left: 50%;
   top: 10%;
 }
+
 .mapItem12 {
   position: absolute;
   left: 40%;

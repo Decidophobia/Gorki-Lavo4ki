@@ -6,11 +6,12 @@
   outline: none;
 }
 
-.containerWrap {
+/* .containerWrap {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
-}
+} */
+
 .veryBigPapa {
   display: flex;
 }
+
