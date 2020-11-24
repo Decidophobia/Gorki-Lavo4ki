@@ -5,7 +5,7 @@ import Post from '../Post/Post'
 
 function Blog(props) {
   const dispatch = useDispatch();
-  const {posts} = useSelector((store) => store.post);
+  const {posts} = useSelector((store) => store);
   console.log(posts);
   useEffect(() => {
     dispatch(fetchGetPostsAC());
