@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Comment from '../Comment/Comment';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {fetchGetCommentsAC} from '../../redux/actionCreators'
 import {store} from '../../redux/store';
 
 
 function CommentsList(props) {
-
-	const comment = useSelector(store => store);
-
+  const dispatch = useDispatch()
+	const comment = useSelector(store => store.post.posts.comments);
+useEffect(() => {
+  dispatch(fetchGetCommentsAC())
+},[dispatch])
 
 	return (
 		<div>
