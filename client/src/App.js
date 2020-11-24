@@ -12,6 +12,7 @@ import Blog from "./Components/Blog/Blog";
 function App() {
   return (
     <div style={{ maxHeight: "100vh", overflow: "hidden" }}>
+
       <Navbar />
       <Switch>
         <Route exact path="/">
@@ -21,20 +22,28 @@ function App() {
           <Login />
         </Route>
         <Route path="/chat">
-          <Chat room={"room1"} />
+          <Chat room={'room1'} />
         </Route>
         <Route path="/chat2">
-          <Chat room={"room2"} />
+          <Chat room={'room2'} />
         </Route>
         <Route path="/account">
-          <Account />
+          <YMaps
+            query={{
+              ns: 'use-load-option',
+              load:
+                'Map,Placemark,control.ZoomControl,control.FullscreenControl,geoObject.addon.balloon',
+            }}
+          >
+            <Account />
+          </YMaps>
         </Route>
         <Route path="/map/:coordId">
           <YMaps
             query={{
-              ns: "use-load-option",
+              ns: 'use-load-option',
               load:
-                "Map,Placemark,control.ZoomControl,control.FullscreenControl,geoObject.addon.balloon",
+                'Map,Placemark,control.ZoomControl,control.FullscreenControl,geoObject.addon.balloon',
             }}
           >
             <MapPage />
