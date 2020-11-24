@@ -11,16 +11,20 @@ import styles from "./Map.module.css";
 import Chat from "../Chat/Chat";
 import { useDispatch, useSelector} from 'react-redux'
 import {fetchGetCordsAC} from '../../redux/actionCreators'
+import { useParams } from "react-router-dom";
 
 Modal.setAppElement("#root");
-
 
 function MapPage(props) {
   //в этом стэйте массив с массивами координат
   const dispatch = useDispatch()
   const [placemark, setPlaceMark] = useState([]);
+  const [point, setPoint] = useState([])
+   let {coordId} = useParams()
+
 
   useEffect(() => {
+    setPoint(coordId.replace(/^:/,'').replace(/\s/g,'').split(','))
     dispatch(fetchGetCordsAC())
   }, [])
 
@@ -32,6 +36,7 @@ function MapPage(props) {
     setIsOpen(false);
   }
   const coordForStaticPlacemark = useSelector((store) => store.coords)
+  if(point)
   return (
     <>
       <div className={styles.containerWrap}>
@@ -39,7 +44,7 @@ function MapPage(props) {
           width={"1000px"}
           height={"800px"}
           defaultState={{
-            center: [59.94153469, 30.24667669],
+            center: point,
             zoom: 13,
             controls: ["zoomControl", "fullscreenControl"],
           }}
