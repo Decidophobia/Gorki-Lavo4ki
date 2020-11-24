@@ -32,6 +32,7 @@ function District() {
             </div>
           </Link>
           <Link className={styles.testLink} to="/map/:59.94153469,30.24667669">
+
             <div className={styles.mapItem3} onClick={null}>
               <span className={styles.district}>Василеостровский</span>
             </div>

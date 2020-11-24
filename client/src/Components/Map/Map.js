@@ -114,7 +114,7 @@ function MapPage({width ='1000px', height='800px'}) {
           </Clusterer>
           <GeolocationControl options={{ float: "left" }} />
         </Map>
-        <Chat />
+        {/* <Chat /> */}
       </div>
 
       <div>

@@ -39,6 +39,7 @@ function App() {
           >
             <MapPage />
           </YMaps>
+          <Chat />
         </Route>
         <Route path="/district">
           <District />

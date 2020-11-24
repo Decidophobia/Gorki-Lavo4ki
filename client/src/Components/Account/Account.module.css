@@ -1,0 +1,34 @@
+.container{
+    padding-top: 100px;
+    font-family: sans-serif;
+}
+.profil{
+    display: flex;
+}
+.profilImg{
+width: 50%;
+}
+.profilImg img{
+    width: 100%;
+}
+.profilData{
+padding: 10px 30px;
+width: 50%;
+}
+.profilDataName{
+font-size: 3rem;
+}
+.profilDataPhone{
+margin-top: 20px;
+font-size: 2rem
+}
+.profilDataEmail{
+    margin-top: 20px;
+    font-size: 2rem
+}
+.map{
+    display: flex;
+}
+.map .profilData{
+    margin-top: 100px;
+}
