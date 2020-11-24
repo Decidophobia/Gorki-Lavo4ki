@@ -9,6 +9,7 @@ router.post('/addComment', async (req, res) => {
 	try {
 		const comment = new Comment(req.body);
 		await comment.save();
+
 		// const commentToPost = Post.findOne({id: post.id});
 		// commentToPost.comments.push(comment.id);
 		// commentToPost.save();
