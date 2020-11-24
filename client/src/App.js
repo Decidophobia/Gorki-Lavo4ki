@@ -29,7 +29,7 @@ function App() {
         <Route path="/account">
           <Account />
         </Route>
-        <Route path="/map">
+        <Route path="/map/:coordId">
           <YMaps
             query={{
               ns: "use-load-option",
