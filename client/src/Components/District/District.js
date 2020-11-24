@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import styles from './District.module.css';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import styles from "./District.module.css";
+import { Link } from "react-router-dom";
 
 function District() {
   // useEffect(() => {
@@ -17,7 +17,7 @@ function District() {
         <div className={styles.map}>
           <Link
             className={styles.testLink}
-            to="/map/:60.01782388533916,30.184311442516837"
+            to={`/map/:60.01782388533916,30.184311442516837`}
           >
             <div className={styles.mapItem1}>
               <span className={styles.district}>Приморский</span>
@@ -32,7 +32,6 @@ function District() {
             </div>
           </Link>
           <Link className={styles.testLink} to="/map/:59.94153469,30.24667669">
-
             <div className={styles.mapItem3} onClick={null}>
               <span className={styles.district}>Василеостровский</span>
             </div>
