@@ -5,6 +5,7 @@ import { chatReducer } from './chatReducer';
 import { postReducer } from './postReducer';
 import { accountReducer } from './accountReducer';
 import { voteReducer } from './voteReducer';
+import {commentReducer} from './commentReducer';
 
 
 export const rootReducer = combineReducers({
