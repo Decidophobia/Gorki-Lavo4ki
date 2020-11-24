@@ -113,6 +113,7 @@ function MapPage({width ='1000px', height='800px'}) {
                 /> ))}
           </Clusterer>
           <GeolocationControl options={{ float: "left" }} />
+          <p><span className={"ymaps-geolink"}>Москва, ул. Льва Толстого, 16</span> — адрес офиса.</p>
         </Map>
         <Chat />
       </div>

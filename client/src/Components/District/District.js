@@ -3,13 +3,13 @@ import styles from './District.module.css';
 import { Link } from 'react-router-dom';
 
 function District() {
-  // useEffect(() => {
-  //   fetch(
-  //     'https://geocode-maps.yandex.ru/1.x/?geocode=30.35971718325475,59.943801810221615&apikey=9c754c0b-5e74-4f99-9f5c-6d43b3daa95d&format=json'
-  //   )
-  //     .then((resp) => resp.json())
-  //     .then((data) => console.log(data));
-  // }, []);
+  useEffect(() => {
+    fetch(
+      'https://geocode-maps.yandex.ru/1.x/?apikey=9c754c0b-5e74-4f99-9f5c-6d43b3daa95d?format=json&callback=my_function&geocode=Москва, улица Новый Арбат, дом 24'
+    )
+      .then((resp) => resp.json())
+      .then((data) => console.log(data));
+  }, []);
 
   return (
     <div className={styles.boxMapWrapper}>
