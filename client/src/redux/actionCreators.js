@@ -196,8 +196,8 @@ export const getCommentsAC = (payload) => ({
 
 // add comments to DB
 export const fetchAddCommentsAC = (payload) => {
-  return () => {
-    fetch('/comments/addComments', {
+  return (dispatch) => {
+    fetch('/comments/addComment', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
