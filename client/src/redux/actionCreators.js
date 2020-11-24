@@ -100,7 +100,7 @@ export const addPostAC = (payload) => ({
 export const fetchAddPostAC = (payload) => {
   return (dispatch) => {
     console.log(payload);
-    fetch('/post/addpost', {
+    fetch('/post/addPost', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -115,7 +115,7 @@ export const fetchAddPostAC = (payload) => {
 //get posts from DB
 export const fetchGetPostsAC = (payload) => {
   return (dispatch) => {
-    fetch('/post/getposts')
+    fetch('/post/getPosts')
       .then((res) => res.json())
       .then((posts) => dispatch(getPostsAC(posts)));
   };
