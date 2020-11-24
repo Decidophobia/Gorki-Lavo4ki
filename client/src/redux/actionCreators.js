@@ -9,6 +9,7 @@ import {
   ADD_LIKE,
   ADD_DISLIKE,
   ADD_COMMENT,
+  GET_COORDS
 } from './actionTypes';
 
 const regexp = new RegExp(/\"/gm);
@@ -144,6 +145,19 @@ export const fetchGetUserAC = (payload) => {
   };
 };
 
+export const getCoords = (payload) => ({
+  type: GET_COORDS,
+  payload,
+});
+
+export const fetchGetCordsAC = (payload) => {
+	return (dispatch) => {
+		fetch('/map')
+			.then((res) => res.json())
+			.then((coords) => dispatch(getCoords(coords)));
+	};
+};
+
 // fetch('/account', {
 //   method: 'POST',
 //   headers: {
@@ -153,6 +167,7 @@ export const fetchGetUserAC = (payload) => {
 // })
 //   .then((res) => res.json())
 //   .then((result) => {console.log(result);});
+
 
 export const addVoteAC = (payload) => ({
   type: ADD_VOTE,
