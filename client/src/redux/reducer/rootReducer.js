@@ -7,6 +7,7 @@ import {accountReducer} from './accountReducer';
 import {voteReducer} from './voteReducer';
 import {commentReducer} from './commentReducer';
 import {coordsReducer} from './coordsReducer';
+import {commentReducer} from './commentReducer'
 
 export const rootReducer = combineReducers({
 	signup: signupReducer,

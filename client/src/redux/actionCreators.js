@@ -9,7 +9,8 @@ import {
   ADD_LIKE,
   ADD_DISLIKE,
   ADD_COMMENT,
-  GET_COORDS
+  GET_COMMENT,
+  GET_COORDS,
 } from './actionTypes';
 
 const regexp = new RegExp(/\"/gm);
@@ -132,7 +133,7 @@ export const getUserAC = (payload) => ({
 });
 
 export const fetchGetUserAC = (payload) => {
-  return (dispatch) => {
+  return () => {
     fetch('/account', {
       method: 'POST',
       headers: {
@@ -151,11 +152,11 @@ export const getCoords = (payload) => ({
 });
 
 export const fetchGetCordsAC = (payload) => {
-	return (dispatch) => {
-		fetch('/map')
-			.then((res) => res.json())
-			.then((coords) => dispatch(getCoords(coords)));
-	};
+  return (dispatch) => {
+    fetch('/map')
+      .then((res) => res.json())
+      .then((coords) => dispatch(getCoords(coords)));
+  };
 };
 
 // fetch('/account', {
@@ -167,7 +168,6 @@ export const fetchGetCordsAC = (payload) => {
 // })
 //   .then((res) => res.json())
 //   .then((result) => {console.log(result);});
-
 
 export const addVoteAC = (payload) => ({
   type: ADD_VOTE,
@@ -184,7 +184,36 @@ export const addDislikeAC = (payload) => ({
   payload,
 });
 
-export const addCommentAC = (payload) => ({
+export const addCommentsAC = (payload) => ({
   type: ADD_COMMENT,
   payload,
 });
+
+export const getCommentsAC = (payload) => ({
+  type: GET_COMMENT,
+  payload,
+});
+
+// add comments to DB
+export const fetchAddCommentsAC = (payload) => {
+  return () => {
+    fetch('/comments/addcomments', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+};
+
+//get comments from DB
+export const fetchGetCommentsAC = (payload) => {
+  return (dispatch) => {
+    fetch('/comments/getcomments')
+      .then((res) => res.json())
+      .then((comment) => dispatch(getCommentsAC(comment)));
+  };
+};

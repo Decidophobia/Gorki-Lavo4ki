@@ -1,7 +1,7 @@
 import { GET_POSTS, ADD_POST } from '../actionTypes';
 const initialState = {
-  posts: []
-}
+  posts: [],
+};
 
 export function postReducer(state = initialState, action) {
   switch (action.type) {
@@ -10,6 +10,6 @@ export function postReducer(state = initialState, action) {
     case ADD_POST:
       return { ...state, posts: action.payload };
     default:
-      return state
+      return state;
   }
 }
