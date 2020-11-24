@@ -1,3 +1,4 @@
+
 import {combineReducers} from 'redux';
 import {signupReducer} from './signupReducer';
 import {loginReducer} from './loginReducer';
@@ -7,6 +8,7 @@ import {accountReducer} from './accountReducer';
 import {voteReducer} from './voteReducer';
 import {commentReducer} from './commentReducer';
 import {coordsReducer} from './coordsReducer';
+
 
 export const rootReducer = combineReducers({
 	signup: signupReducer,
