@@ -15,7 +15,7 @@ import { useParams } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
-function MapPage({ width = "1000px", height = "800px", center }) {
+function MapPage() {
   //в этом стэйте массив с массивами координат
   const dispatch = useDispatch();
   const [placemark, setPlaceMark] = useState([]);
@@ -23,8 +23,7 @@ function MapPage({ width = "1000px", height = "800px", center }) {
   let { coordId } = useParams();
 
   useEffect(() => {
-    // setPoint(coordId.replace(/^:/, "").replace(/\s/g, "").split(","));
-    // console.log(coordId);
+    setPoint(coordId.replace(/^:/, "").replace(/\s/g, "").split(","));
     dispatch(fetchGetCordsAC());
   }, []);
 
@@ -36,15 +35,15 @@ function MapPage({ width = "1000px", height = "800px", center }) {
     setIsOpen(false);
   }
   const coordForStaticPlacemark = useSelector((store) => store.coords);
-  // if (point)
+  if (point)
   return (
     <>
       <div className={styles.containerWrap}>
         <Map
-          width={width}
-          height={height}
+          width={"1000px"}
+          height={"800px"}
           defaultState={{
-            center: center,
+            center: point,
             zoom: 13,
             controls: ["zoomControl", "fullscreenControl"],
           }}
