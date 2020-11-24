@@ -7,10 +7,10 @@ import {store} from '../../redux/store';
 
 function CommentsList(props) {
   const dispatch = useDispatch()
-	const comment = useSelector(store => store.post.posts.comments);
+	const comment = useSelector(store => store.posts);
 useEffect(() => {
   dispatch(fetchGetCommentsAC())
-},[dispatch])
+},[])
 
 	return (
 		<div>

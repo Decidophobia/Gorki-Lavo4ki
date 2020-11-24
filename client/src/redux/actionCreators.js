@@ -133,7 +133,7 @@ export const getUserAC = (payload) => ({
 });
 
 export const fetchGetUserAC = (payload) => {
-  return () => {
+  return (dispatch) => {
     fetch('/account', {
       method: 'POST',
       headers: {
@@ -197,7 +197,7 @@ export const getCommentsAC = (payload) => ({
 // add comments to DB
 export const fetchAddCommentsAC = (payload) => {
   return () => {
-    fetch('/comments/addcomments', {
+    fetch('/comments/addComments', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -212,7 +212,7 @@ export const fetchAddCommentsAC = (payload) => {
 //get comments from DB
 export const fetchGetCommentsAC = (payload) => {
   return (dispatch) => {
-    fetch('/comments/getcomments')
+    fetch('/comments/getComments')
       .then((res) => res.json())
       .then((comment) => dispatch(getCommentsAC(comment)));
   };
