@@ -7,11 +7,11 @@ import Account from "./Components/Account/Account";
 import MapPage from "./Components/Map/Map";
 import { YMaps } from "react-yandex-maps";
 import District from "./Components/District/District";
-import Blog from './Components/Blog/Blog'
+import Blog from "./Components/Blog/Blog";
 
 function App() {
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ maxHeight: "100vh" }}>
       <Navbar />
       <Switch>
         <Route exact path="/">
@@ -44,9 +44,9 @@ function App() {
         <Route path="/district">
           <District />
         </Route>
-          <Route path="/blog">
-            <Blog/>
-          </Route>
+        <Route path="/blog">
+          <Blog />
+        </Route>
       </Switch>
     </div>
   );
