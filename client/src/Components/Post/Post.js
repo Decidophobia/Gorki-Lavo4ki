@@ -8,7 +8,7 @@ function Post({post}) {
 			<div>Название проекта: { post.title }</div>
 			<div>Описание проекта: { post.description }</div>
 			<img src={ post.photo } style={ {width: '50%', heigh: '35%'} }/>
-			<div>Комментарии: <CommentsList id={ post.id }/> <br/> <CommentForm/></div>
+			<div>Комментарии: <CommentsList key={post._id} id={ post._id }/> <br/> <CommentForm id={post._id} /></div>
 		</div>
 	);
 }

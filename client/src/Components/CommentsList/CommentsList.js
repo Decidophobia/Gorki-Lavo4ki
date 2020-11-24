@@ -14,7 +14,6 @@ function CommentsList(props) {
 
 	return (
 		<div>
-			CommentList
 			{ comment && comment.map(el => <Comment key={ el.id } el={ el }/>) }
 		</div>
 	);

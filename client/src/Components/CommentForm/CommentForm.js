@@ -5,6 +5,7 @@ import {fetchAddCommentsAC} from '../../redux/actionCreators';
 const regexp = new RegExp(/\"/gm);
 
 function CommentForm(props) {
+	// console.log(props.id);
 
 	const commentBody = useRef();
 	const dispatch = useDispatch();
@@ -13,6 +14,7 @@ function CommentForm(props) {
 		event.preventDefault();
 
 		const commentText = {
+			postId: props.id,
 			user: localStorage.getItem('name').replace(regexp, ''),
 			text: commentBody.current.value,
 		};
