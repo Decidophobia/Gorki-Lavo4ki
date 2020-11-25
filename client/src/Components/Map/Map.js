@@ -26,7 +26,7 @@ function MapPage() {
   //в этом стэйте массив с массивами координат
   const dispatch = useDispatch();
   const [placemark, setPlaceMark] = useState([]);
-  const [adress, setAdress] = useState(null);
+  const [address, setAdress] = useState(null);
   const [point, setPoint] = useState([]);
   let { coordId } = useParams();
 
@@ -78,7 +78,7 @@ function MapPage() {
               placemark.map((coordinates, index) => (
                 <Placemark
                 //adress.name -это адресс, adress.description- это город
-                  onClick={() => console.log(adress.name, adress.description)}
+                  onClick={() => console.log(address.name, address.description)}
                   key={index}
                   geometry={coordinates}
                   properties={{
@@ -137,7 +137,7 @@ function MapPage() {
           onRequestClose={closeModal}
           className={styles.modalWind}
         >
-          <ModalWindow placemark={placemark} closeModal={closeModal} />
+          <ModalWindow placemark={placemark} closeModal={closeModal} address={address}/>
         </Modal>
       </div>
     </>
