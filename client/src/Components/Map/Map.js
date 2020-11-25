@@ -25,7 +25,6 @@ async function fetchOnGeoCod(url, setFunc) {
   } catch (error) {
     
   }
- 
 }
 
 function MapPage() {
