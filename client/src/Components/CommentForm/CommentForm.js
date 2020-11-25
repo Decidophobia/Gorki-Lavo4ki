@@ -19,8 +19,8 @@ function CommentForm(props) {
 			text: commentBody.current.value,
 		};
 		dispatch(fetchAddCommentsAC(commentText));
+		commentBody.current.value = '';
 	};
-
 	return (
 		<div>
 			<form onSubmit={ sendComment } action="">
