@@ -8,13 +8,12 @@ import AccountEdit from '../AccountEdit/AccountEdit'
 function Account(props) {
   let user = JSON.parse(localStorage.getItem("name"));
   let allArea = JSON.parse(localStorage.getItem("allAreaCoord"));
-  const [coordinates, setCoordinates] = useState([59.95006023462294, 30.23918528022138])
+  const [coordinates, setCoordinates] = useState([59.91806799340517,30.304899499999895])
+    const { account } = useSelector((store) => store);
+
   function shareCoordinates(areaCoordinates){
       setCoordinates(()=>areaCoordinates)
-      // console.log(coordinates);
   }
- 
-  const { account } = useSelector((store) => store);
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGetUserAC({ user }));
@@ -53,20 +52,20 @@ function Account(props) {
 
       </div>
       <div className={style.maps}>
-        <div className={style.map}><AccountMap coordinates={coordinates} setCoordinates={setCoordinates}/></div>
+        <div className={style.map}><AccountMap coordinates={coordinates}/></div>
         <div className={style.mapArea}>
-          <div className={style.link} onClick={()=>shareCoordinates(allArea.admeralteiski)}>Адмиралтейский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.primorski)}>Приморский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.viborgski)}>Выборгский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.kalininski)}>Калининский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.krasnogvardeiski)}>Красногвардейский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.nevski)}>Невский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.frunzenski)}>Фрунзенский</div>
           <div className={style.link} onClick={()=>shareCoordinates(allArea.moskovski)}>Московский</div>
-          <div className={style.link} onClick={()=>shareCoordinates()}>Девяткино</div>
-          <div className={style.link} onClick={()=>shareCoordinates()}>Васька</div>
-          <div className={style.link} onClick={()=>shareCoordinates()}>Петроградка</div>
-          <div className={style.link} onClick={()=>shareCoordinates()}>Девяткино</div>
-          <div className={style.link} onClick={()=>shareCoordinates()}>Васька</div>
-          <div className={style.link} onClick={()=>shareCoordinates()}>Петроградка</div>
-          <div className={style.link} onClick={()=>shareCoordinates()}>Девяткино</div>
-          <div className={style.link} onClick={()=>shareCoordinates()}>Васька</div>
-          <div className={style.link} onClick={()=>shareCoordinates()}>Петроградка</div>
-          <div className={style.link} onClick={()=>shareCoordinates()}>Девяткино</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.kirovski)}>Кировский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.admeralteiski)}>Адмиралтейский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.vasileostrovski)}>Василиостровский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.petrogradski)}>Петроградский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.centralni)}>Центральный</div>
         </div>
       </div>
       <AccountEdit/>

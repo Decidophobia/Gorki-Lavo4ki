@@ -7,7 +7,7 @@ import {
   Clusterer,
 } from 'react-yandex-maps';
 
-function AccountMap({coordinates, setCoordinates}) {
+function AccountMap({coordinates}) {
   const coordForStaticPlacemark = useSelector((store) => store.coords);
   const [coord, setCoord] = useState()
   let dispatch = useDispatch(coordinates);
@@ -18,18 +18,23 @@ function AccountMap({coordinates, setCoordinates}) {
   }, []);
   
   useEffect(()=>{
-    setCoordinates(coordinates)
+    setCoord(coordinates)
   
     console.log(coord, "dispatch");
 },[coordinates])
   return (
     <>
-    {coordinates}
+    {coord}
       <Map
         width={'790px'}
         height={'500px'}
         defaultState={{
-          center: coordinates && coordinates ,
+          center: [59.91806799340517,30.304899499999895],
+          zoom: 13,
+          controls: ['zoomControl', 'fullscreenControl'],
+        }}
+        state={{
+          center: coordinates,
           zoom: 13,
           controls: ['zoomControl', 'fullscreenControl'],
         }}
