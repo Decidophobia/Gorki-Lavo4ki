@@ -22,6 +22,18 @@ async function fetchOnGeoCod(url, setFunc) {
     result.response.GeoObjectCollection.featureMember[0].GeoObject
   );
 }
+
+const fethRemove = (el)=> {
+      fetch('/map', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(el),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
+}
 function MapPage() {
   //в этом стэйте массив с массивами координат
   const dispatch = useDispatch();
@@ -43,6 +55,13 @@ function MapPage() {
     setIsOpen(false);
   }
   const coordForStaticPlacemark = useSelector((store) => store.coords);
+
+  const removePlacemark = (placemark) => {
+    setPlaceMark((prev) => {
+      return prev.filter((place ) => place.coord !== placemark.coord)
+    }) 
+  }
+
   return (
     <>
       <div className={styles.containerWrap}>
@@ -77,15 +96,18 @@ function MapPage() {
             {placemark &&
               placemark.map((coordinates, index) => (
                 <Placemark
-                //adress.name -это адресс, adress.description- это город
-                  onClick={() => console.log(address.name, address.description)}
+                   onContextmenu={() => {removePlacemark(placemark)}}
+                  onClick={null}
                   key={index}
                   geometry={coordinates}
                   properties={{
-                    iconContent: 'Грязюка',
                     balloonContentHeader:
                       '<span class="description">Ваша отметка</span>',
-                    balloonContentBody: `Туть грязно`,
+                    balloonContentBody: `
+                      <div>
+                        <span> После обновления появится Ваш проект </span>
+                        <button>delete</button>
+                      </div>`,
                   }}
                   options={{
                     // preset: "islands#redStretchyIcon",
@@ -103,13 +125,15 @@ function MapPage() {
             {coordForStaticPlacemark &&
               coordForStaticPlacemark.map((el, index) => (
                 <Placemark
+                  onContextmenu={null}
                   key={index}
                   geometry={el.coord[0]}
                   properties={{
                     // iconContent: "Грязюка",
-                    balloonContentHeader: `<span class="description">${el.id}</span>`,
+                    balloonContentHeader: `<span class="description">${el.address}</span>`,
                     balloonContentBody: `<span class="description">${el.description}</span>
                     <img src="${el.photo}" style="width: 50%; heigh: 35%"/>
+                    <button onclick="fethRemove(el)">delete</button>
                     `,
                   }}
                   options={{
@@ -119,8 +143,8 @@ function MapPage() {
                     iconImageHref:
                       //ссылка сломалась, подставили пока ссылку на пнг картинку с марком
                       // "https://psv4.userapi.com/c856220/u8423482/docs/d4/a62869fdf7ee/placemark-06.png?extra=vfLVfiI9KJh8kPP143yaJMZHXyG1-PszB1QCpBhesI3Yo0CcPhYjkihP7JU7lZATowUotK2FMNFhmXsG-_vjU-mo3LtlPD6zBmatW_cmGr4PEIswQDlVTvla69SHqKK2BjWlVuKBSx4ojVHrrw"
-                      "http://localhost:3000/place.svg",
-                       iconImageSize: [60, 70],
+                      'http://localhost:3000/place.svg',
+                    iconImageSize: [60, 70],
                     iconImageOffset: [-20, -20],
                   }}
                 />
@@ -137,7 +161,11 @@ function MapPage() {
           onRequestClose={closeModal}
           className={styles.modalWind}
         >
-          <ModalWindow placemark={placemark} closeModal={closeModal} address={address}/>
+          <ModalWindow
+            placemark={placemark}
+            closeModal={closeModal}
+            address={address}
+          />
         </Modal>
       </div>
     </>

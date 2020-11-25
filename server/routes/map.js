@@ -11,4 +11,14 @@ router.get('/', async (req, res) => {
 	}
 });
 
+router.post('/', async (req, res) => {
+	console.log(req.body.coord );
+	try {
+    await Post.deleteOne({ coord: req.body.coord });
+		res.status(200).json('delete');
+	} catch (err) {
+		res.status(404).json('Post has been delete!');
+	}
+});
+
 module.exports = router;
