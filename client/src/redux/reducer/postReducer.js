@@ -1,6 +1,7 @@
 import { GET_POSTS, ADD_POST } from '../actionTypes';
 const initialState = {
   posts: [],
+  
 };
 
 export function postReducer(state = initialState, action) {
