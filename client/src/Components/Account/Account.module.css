@@ -19,6 +19,7 @@
 }
 
 .profInfo {
+  position: relative;
   width: 70%;
   padding-left: 50px;
 }
@@ -65,9 +66,15 @@
   padding-left: 10px;
 }
 
+.profilData {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .profilData>div {
   display: flex;
   margin-top: 10px;
+  width: 50%;
 }
 
 .profilData .title {
