@@ -10,8 +10,8 @@ function ModalWindow(props) {
 	const description = useRef();
 	const title = useRef();
 
-	const [loading, setLoading] = useState(false);
-	const [urlImage, setUrlImage] = useState('');
+	const [loading, setLoad] = useState(false);
+	const [urlImg, setUrlImg] = useState('');
 
 	const uploadImage = async (event) => {
 		event.preventDefault();
@@ -20,7 +20,7 @@ function ModalWindow(props) {
 		const data = new FormData();
 		data.append('file', files[0]);
 		data.append('upload_preset', 'reactimages');
-		setLoading(true);
+		setLoad(true);
 
 		const res = await fetch(
 			'https://api.cloudinary.com/v1_1/dqau98mqw/image/upload',
@@ -31,7 +31,7 @@ function ModalWindow(props) {
 		);
 
 		const image = await res.json();
-		setUrlImage(image.url);
+		setUrlImg(image.url);
 	};
 
 	const getDataFromForm = async (event) => {
@@ -41,7 +41,7 @@ function ModalWindow(props) {
 			authorID: localStorage.getItem('userId').replace(regexp, ''),
 			title: title.current.value,
 			description: description.current.value,
-			photo: urlImage,
+			photo: urlImg,
       coord: props.placemark,
       address: props.address.description + ', ' + props.address.name,
 		};
