@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGetUserAC } from "../../redux/actionCreators";
 import style from "./Account.module.css";
@@ -8,7 +8,12 @@ import AccountEdit from '../AccountEdit/AccountEdit'
 function Account(props) {
   let user = JSON.parse(localStorage.getItem("name"));
   let allArea = JSON.parse(localStorage.getItem("allAreaCoord"));
-  console.log(allArea);
+  const [coordinates, setCoordinates] = useState([59.95006023462294, 30.23918528022138])
+  function shareCoordinates(areaCoordinates){
+      setCoordinates(()=>areaCoordinates)
+      // console.log(coordinates);
+  }
+ 
   const { account } = useSelector((store) => store);
   let dispatch = useDispatch();
   useEffect(() => {
@@ -21,11 +26,10 @@ function Account(props) {
           <img src={account.image} />
         </div>
         <div className={style.profInfo}>
-                  <div className={style.profilTitle}>
-                  <div className={style.profilTitleName}>{/*{account.name}*/} Александр Желтоногов</div>
-                  <div className={style.profilTitleStatus}>{account.status ? account.status: "дизайнер"}</div>
-                  {/* <button className={style.profilTitleEdit}>edit</button> */}
-                </div>
+            <div className={style.profilTitle}>
+            <div className={style.profilTitleName}>{/*{account.name}*/} Александр Желтоногов</div>
+            <div className={style.profilTitleStatus}>{account.status ? account.status: "дизайнер"}</div>
+        </div>
                   <div className={style.profilData}>
                               <div className={style.email}>
                                 <div className={style.title}>Email</div>
@@ -49,20 +53,20 @@ function Account(props) {
 
       </div>
       <div className={style.maps}>
-        <div className={style.map}><AccountMap /></div>
+        <div className={style.map}><AccountMap coordinates={coordinates} setCoordinates={setCoordinates}/></div>
         <div className={style.mapArea}>
-          <div className={style.link}>Васька</div>
-          <div className={style.link}>Петроградка</div>
-          <div className={style.link}>Девяткино</div>
-          <div className={style.link}>Васька</div>
-          <div className={style.link}>Петроградка</div>
-          <div className={style.link}>Девяткино</div>
-          <div className={style.link}>Васька</div>
-          <div className={style.link}>Петроградка</div>
-          <div className={style.link}>Девяткино</div>
-          <div className={style.link}>Васька</div>
-          <div className={style.link}>Петроградка</div>
-          <div className={style.link}>Девяткино</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.admeralteiski)}>Адмиралтейский</div>
+          <div className={style.link} onClick={()=>shareCoordinates(allArea.moskovski)}>Московский</div>
+          <div className={style.link} onClick={()=>shareCoordinates()}>Девяткино</div>
+          <div className={style.link} onClick={()=>shareCoordinates()}>Васька</div>
+          <div className={style.link} onClick={()=>shareCoordinates()}>Петроградка</div>
+          <div className={style.link} onClick={()=>shareCoordinates()}>Девяткино</div>
+          <div className={style.link} onClick={()=>shareCoordinates()}>Васька</div>
+          <div className={style.link} onClick={()=>shareCoordinates()}>Петроградка</div>
+          <div className={style.link} onClick={()=>shareCoordinates()}>Девяткино</div>
+          <div className={style.link} onClick={()=>shareCoordinates()}>Васька</div>
+          <div className={style.link} onClick={()=>shareCoordinates()}>Петроградка</div>
+          <div className={style.link} onClick={()=>shareCoordinates()}>Девяткино</div>
         </div>
       </div>
       <AccountEdit/>
