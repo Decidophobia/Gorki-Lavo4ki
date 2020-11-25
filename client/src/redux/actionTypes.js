@@ -10,3 +10,4 @@ export const ADD_DISLIKE = 'ADD_DISLIKE';
 export const ADD_COMMENT = 'ADD_COMMENT';
 // export const GET_COMMENT = 'GET_COMMENT';
 export const GET_COORDS = 'GET_COORDS';
+export const CHANGE_PROFILE = 'CHANGE_PROFILE';
