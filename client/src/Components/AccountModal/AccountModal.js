@@ -12,6 +12,8 @@ function AccountModal(props) {
     const fullSurname =useRef()
     const city = useRef()
     const area = useRef()
+    const phone = useRef()
+    const email = useRef()
 
     
     const uploadImage = async (event) => {
@@ -38,14 +40,14 @@ function AccountModal(props) {
 		event.preventDefault();
 
 		const change = {
-            photo: urlImage,
+            image: urlImage,
             fullName:fullName.current.value,
             fullSurname:fullSurname.current.value,
             area:area.current.value,
             city:city.current.value
 		};
-		// await dispatch(fetchChangeProfileAC(change));
-		console.log(post);
+		await dispatch(fetchChangeProfileAC(change));
+		console.log(change);
 		props.closeModal();
 	};
     return (
@@ -60,9 +62,11 @@ function AccountModal(props) {
 							placeholder="Загрузите аватарку"
 						/>
                         <input ref={fullName} placeholder='Имя'/>
-                        <input ref={fullSurname} placeholder='Имя'/>
+                        <input ref={fullSurname} placeholder='Фамилия'/>
                         <input ref={city} placeholder='Город'/>
                         <input ref={area} placeholder='Район'/>
+                        <input ref={phone} placeholder='Телефон'/>
+                        <input ref={email} placeholder='Email'/>
 						<button  onClick={ props.closeModal }>X</button>
 						<button type="submit" className={ styles.save }>
 							Cохранить
