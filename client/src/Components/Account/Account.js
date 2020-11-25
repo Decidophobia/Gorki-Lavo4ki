@@ -7,6 +7,8 @@ import AccountEdit from '../AccountEdit/AccountEdit'
 
 function Account(props) {
   let user = JSON.parse(localStorage.getItem("name"));
+  let allArea = JSON.parse(localStorage.getItem("allAreaCoord"));
+  console.log(allArea);
   const { account } = useSelector((store) => store);
   let dispatch = useDispatch();
   useEffect(() => {

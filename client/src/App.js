@@ -26,8 +26,7 @@ const geoCoordsDistrict = {
 };
 
 function App() {
-  const [geoDistrict, setGeoDistrict] = useState(geoCoordsDistrict)
-  
+  localStorage.setItem('allAreaCoord', JSON.stringify(geoCoordsDistrict));
   return (
     <div style={{ maxHeight: "100vh"}}>
 
