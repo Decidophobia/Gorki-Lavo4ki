@@ -3,7 +3,7 @@ import ModalWindow from "../AccountModal/AccountModal.js";
 import Modal from "react-modal";;
 
 function AccountEdit(props) {
-    const [modalIsOpen, setIsOpen] = useState(false);
+const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
     console.log(modalIsOpen);
