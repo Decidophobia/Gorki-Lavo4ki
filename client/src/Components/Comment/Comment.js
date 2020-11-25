@@ -1,11 +1,15 @@
 import React from 'react';
 
-function Comment(props) {
+function Comment({el}) {
+	console.log(el);
+
 	return (
 		<div>
-			<div>
-				{ props.comment }
-			</div>
+				<b>Name:</b> { el.user }
+				<br/>
+				<b>Comment:</b> { el.text }
+				<br/>
+				<b>Date:</b> { el.date }
 		</div>
 	);
 }

@@ -19,10 +19,10 @@ function AccountMap() {
   return (
     <>
       <Map
-        width={'500px'}
+        width={'790px'}
         height={'500px'}
         defaultState={{
-          center: [59.94160293948906, 30.305847697399653],
+          center: [59.95006023462294, 30.23918528022138],
           zoom: 13,
           controls: ['zoomControl', 'fullscreenControl'],
         }}
@@ -46,7 +46,7 @@ function AccountMap() {
                 iconImageHref:
                   //ссылка сломалась, подставили пока ссылку на пнг картинку с марком
                   // "https://psv4.userapi.com/c856220/u8423482/docs/d4/a62869fdf7ee/placemark-06.png?extra=vfLVfiI9KJh8kPP143yaJMZHXyG1-PszB1QCpBhesI3Yo0CcPhYjkihP7JU7lZATowUotK2FMNFhmXsG-_vjU-mo3LtlPD6zBmatW_cmGr4PEIswQDlVTvla69SHqKK2BjWlVuKBSx4ojVHrrw"
-                  'https://www.flaticon.com/svg/static/icons/svg/876/876213.svg',
+                  'http://localhost:3000/place.svg',
                 iconImageSize: [45, 60],
                 iconImageOffset: [-20, -20],
               }}

@@ -1,20 +1,21 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Comment from '../Comment/Comment';
-import {useSelector, useDispatch} from 'react-redux';
-import {fetchGetCommentsAC} from '../../redux/actionCreators';
-import {store} from '../../redux/store';
+// import {useSelector, useDispatch} from 'react-redux';
+// import {fetchGetCommentsAC} from '../../redux/actionCreators';
+// import {store} from '../../redux/store';
 
 
 function CommentsList(props) {
-	const dispatch = useDispatch();
-	const comment = useSelector(store => store.posts);
-	useEffect(() => {
-		dispatch(fetchGetCommentsAC());
-	}, []);
+	// console.log(props);
+	// const dispatch = useDispatch();
+	// const comment = useSelector(store => store.posts);
+	// useEffect(() => {
+	// 	dispatch(fetchGetCommentsAC(props));
+	// }, []);
 
 	return (
 		<div>
-			{ comment && comment.map(el => <Comment key={ el.id } el={ el }/>) }
+			{ props.comments.length >= 1 ? props.comments.map(el => <Comment el={ el }/>) : null }
 		</div>
 	);
 }

@@ -43,7 +43,6 @@ function MapPage() {
     setIsOpen(false);
   }
   const coordForStaticPlacemark = useSelector((store) => store.coords);
-
   return (
     <>
       <div className={styles.containerWrap}>
@@ -120,8 +119,8 @@ function MapPage() {
                     iconImageHref:
                       //ссылка сломалась, подставили пока ссылку на пнг картинку с марком
                       // "https://psv4.userapi.com/c856220/u8423482/docs/d4/a62869fdf7ee/placemark-06.png?extra=vfLVfiI9KJh8kPP143yaJMZHXyG1-PszB1QCpBhesI3Yo0CcPhYjkihP7JU7lZATowUotK2FMNFhmXsG-_vjU-mo3LtlPD6zBmatW_cmGr4PEIswQDlVTvla69SHqKK2BjWlVuKBSx4ojVHrrw"
-                      'https://www.flaticon.com/svg/static/icons/svg/876/876213.svg',
-                    iconImageSize: [45, 60],
+                      "http://localhost:3000/place.svg",
+                       iconImageSize: [60, 70],
                     iconImageOffset: [-20, -20],
                   }}
                 />
