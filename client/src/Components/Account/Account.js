@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGetUserAC } from "../../redux/actionCreators";
 import style from "./Account.module.css";
 import AccountMap from '../AccountMap/AccountMap'
+import AccountEdit from '../AccountEdit/AccountEdit'
 
 function Account(props) {
   let user = JSON.parse(localStorage.getItem("name"));
   const { account } = useSelector((store) => store);
-
-  console.log(account);
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGetUserAC({ user }));
@@ -17,7 +16,7 @@ function Account(props) {
     <div className={style.container}>
       <div className={style.profil}>
         <div className={style.profilImg}>
-          <img src="https://lh3.googleusercontent.com/q2k2Mco2k7wcSz_M3Wo0QL_YoMdXiL8FT1X_tqNN2A7PpAyEfTu9aHEQB6lARDBLXw" />
+          <img src={account.image} />
         </div>
         <div className={style.profInfo}>
                   <div className={style.profilTitle}>
@@ -64,6 +63,7 @@ function Account(props) {
           <div className={style.link}>Девяткино</div>
         </div>
       </div>
+      <AccountEdit/>
     </div>
   );
 }
