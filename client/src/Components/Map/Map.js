@@ -34,6 +34,7 @@ const fethRemove = (el)=> {
       .then((res) => res.json())
       .then((result) => console.log(result));
 }
+
 function MapPage() {
   //в этом стэйте массив с массивами координат
   const dispatch = useDispatch();
@@ -87,16 +88,15 @@ function MapPage() {
             return setPlaceMark((prev) => [...prev, coords]);
           }}
         >
-          <Clusterer
+          {/* <Clusterer
             options={{
               preset: 'islands#invertedVioletClusterIcons',
               groupByCoordinates: false,
             }}
-          >
+          > */}
             {placemark &&
               placemark.map((coordinates, index) => (
                 <Placemark
-                   onContextmenu={() => {removePlacemark(placemark)}}
                   onClick={null}
                   key={index}
                   geometry={coordinates}
@@ -106,7 +106,6 @@ function MapPage() {
                     balloonContentBody: `
                       <div>
                         <span> После обновления появится Ваш проект </span>
-                        <button>delete</button>
                       </div>`,
                   }}
                   options={{
@@ -125,7 +124,6 @@ function MapPage() {
             {coordForStaticPlacemark &&
               coordForStaticPlacemark.map((el, index) => (
                 <Placemark
-                  onContextmenu={null}
                   key={index}
                   geometry={el.coord[0]}
                   properties={{
@@ -133,7 +131,6 @@ function MapPage() {
                     balloonContentHeader: `<span class="description">${el.address}</span>`,
                     balloonContentBody: `<span class="description">${el.description}</span>
                     <img src="${el.photo}" style="width: 50%; heigh: 35%"/>
-                    <button onclick="fethRemove(el)">delete</button>
                     `,
                   }}
                   options={{
@@ -149,7 +146,7 @@ function MapPage() {
                   }}
                 />
               ))}
-          </Clusterer>
+          {/* </Clusterer> */}
           <GeolocationControl options={{ float: 'left' }} />
         </Map>
         {/* <Chat /> */}
