@@ -15,7 +15,7 @@ router.post('/change', async (req, res) => {
 	try {
 		console.log(req.body);
 		const user = await User.findOneAndUpdate({_id:req.body.id},{
-			// image:req.body.image,
+			image:req.body.image,
   			fullName: req.body.fullName, 
   			fullSurname: req.body.fullSurname,
    			city:req.body.city,

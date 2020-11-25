@@ -1,14 +1,15 @@
 import React, {useRef} from 'react';
 import {useDispatch} from 'react-redux';
+import { useHistory, Redirect } from 'react-router-dom';
 import {fetchLoginUserAC} from '../../redux/actionCreators';
 import styles from './Login.module.css'
 export const Login = () => {
-
+	const history = useHistory()
 	const dispatch = useDispatch();
 	const email = useRef();
 	const password = useRef();
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		const userLogin = {
@@ -17,6 +18,7 @@ export const Login = () => {
 		};
 
 		dispatch(fetchLoginUserAC(userLogin));
+		history.push('/district')
 	};
 
 	return (
