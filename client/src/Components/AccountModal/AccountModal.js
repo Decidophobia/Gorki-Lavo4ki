@@ -1,12 +1,14 @@
 import React, { useRef, useState } from 'react';
 import styles from './AccountModal.module.css'
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {fetchChangeProfileAC} from '../../redux/actionCreators';
 
 function AccountModal(props) {
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false);
-    const [urlImage, setUrlImage] = useState('');
+	const [urlImage, setUrlImage] = useState('');
+	const {account} = useSelector(store=>store)
+
 
     const fullName =useRef()
     const fullSurname =useRef()
@@ -40,11 +42,14 @@ function AccountModal(props) {
 		event.preventDefault();
 
 		const change = {
+			id:account._id,
             image: urlImage,
-            fullName:fullName.current.value,
-            fullSurname:fullSurname.current.value,
-            area:area.current.value,
-            city:city.current.value
+            fullName: fullName.current.value?fullName.current.value:account.fullName,
+            fullSurname:fullSurname.current.value? fullSurname.current.value: account.fullSurname,
+            area:area.current.value? area.current.value: account.area,
+			city:city.current.value?city.current.value:account.city,
+			phone:phone.current.value?phone.current.value:account.phone,
+			email:email.current.value?email.current.value:account.email
 		};
 		await dispatch(fetchChangeProfileAC(change));
 		console.log(change);
@@ -61,12 +66,12 @@ function AccountModal(props) {
 							name="file"
 							placeholder="Загрузите аватарку"
 						/>
-                        <input ref={fullName} placeholder='Имя'/>
-                        <input ref={fullSurname} placeholder='Фамилия'/>
-                        <input ref={city} placeholder='Город'/>
-                        <input ref={area} placeholder='Район'/>
-                        <input ref={phone} placeholder='Телефон'/>
-                        <input ref={email} placeholder='Email'/>
+                        <input ref={fullName} placeholder='Имя'placeholder={account.fullName}/>
+                        <input ref={fullSurname} placeholder='Фамилия' placeholder={account.fullSurname}/>
+                        <input ref={city} placeholder='Город'placeholder={account.city}/>
+                        <input ref={area} placeholder='Район' placeholder={account.area}/>
+                        <input ref={phone} placeholder='Телефон' placeholder={account.phone} type='number'/>
+                        <input ref={email} placeholder='Email' placeholder={account.email} type='email'/>
 						<button  onClick={ props.closeModal }>X</button>
 						<button type="submit" className={ styles.save }>
 							Cохранить
