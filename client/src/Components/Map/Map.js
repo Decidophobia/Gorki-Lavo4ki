@@ -130,7 +130,7 @@ function MapPage() {
                     // iconContent: "Грязюка",
                     balloonContentHeader: `<span class="description">${el.address}</span>`,
                     balloonContentBody: `<span class="description">${el.description}</span>
-                    <img src="${el.photo}" style="width: 50%; heigh: 35%"/>
+                    <img src="${el.photo}" class="myclass" style="width: 50%; heigh: 35%"/>
                     `,
                   }}
                   options={{

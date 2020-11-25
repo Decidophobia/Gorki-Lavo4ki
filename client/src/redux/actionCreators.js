@@ -11,6 +11,7 @@ import {
 	ADD_COMMENT,
 	// GET_COMMENT,
 	GET_COORDS,
+	CHANGE_PROFILE
 } from './actionTypes';
 
 const regexp = new RegExp(/\"/gm);
@@ -213,3 +214,22 @@ export const fetchAddCommentsAC = (payload) => {
 // 			.then((comment) => dispatch(getCommentsAC(comment)));
 // 	};
 // };
+
+export const fetchChangeProfileAC = (payload) => {
+	return (dispatch) => {
+		fetch('/account/change', {
+			method: 'POST',
+			headers: {
+				'Content-type': 'application/json',
+			},
+			body: JSON.stringify(payload),
+		})
+			.then((res) => res.json())
+			.then((data) => dispatch(ChangeProfileAC(data)));
+	};
+};
+
+export const ChangeProfileAC = (payload) => ({
+	type: CHANGE_PROFILE,
+	payload,
+});

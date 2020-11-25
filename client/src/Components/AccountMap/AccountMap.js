@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchGetCordsAC } from '../../redux/actionCreators';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -7,22 +7,34 @@ import {
   Clusterer,
 } from 'react-yandex-maps';
 
-function AccountMap() {
+function AccountMap({coordinates}) {
   const coordForStaticPlacemark = useSelector((store) => store.coords);
-
-  let dispatch = useDispatch();
-
+  const [coord, setCoord] = useState()
+  let dispatch = useDispatch(coordinates);
+// console.log(coordinates);
+    // console.log(coord);
   useEffect(() => {
     dispatch(fetchGetCordsAC());
   }, []);
-
+  
+  useEffect(()=>{
+    setCoord(coordinates)
+  
+    console.log(coord, "dispatch");
+},[coordinates])
   return (
     <>
+    {coord}
       <Map
         width={'790px'}
         height={'500px'}
         defaultState={{
-          center: [59.95006023462294, 30.23918528022138],
+          center: [59.91806799340517,30.304899499999895],
+          zoom: 13,
+          controls: ['zoomControl', 'fullscreenControl'],
+        }}
+        state={{
+          center: coordinates,
           zoom: 13,
           controls: ['zoomControl', 'fullscreenControl'],
         }}

@@ -8,3 +8,8 @@
     display: flex;
     justify-content: center
 }
+
+.myclass {
+    background: red;
+    padding: 15px;
+}
