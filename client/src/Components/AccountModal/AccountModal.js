@@ -37,6 +37,7 @@ function AccountModal(props) {
 
         const image = await res.json();
 		setUrlImage(image.url);
+		console.log(image.url);
     };
     	const getDataFromForm = async (event) => {
 		event.preventDefault();
@@ -45,11 +46,11 @@ function AccountModal(props) {
 			id:account._id,
             image: urlImage,
             fullName: fullName.current.value?fullName.current.value:account.fullName,
-            fullSurname:fullSurname.current.value? fullSurname.current.value: account.fullSurname,
-            area:area.current.value? area.current.value: account.area,
-			city:city.current.value?city.current.value:account.city,
-			phone:phone.current.value?phone.current.value:account.phone,
-			email:email.current.value?email.current.value:account.email
+            fullSurname: fullSurname.current.value? fullSurname.current.value: account.fullSurname,
+            area: area.current.value? area.current.value: account.area,
+			city: city.current.value?city.current.value:account.city,
+			phone: phone.current.value?phone.current.value:account.phone,
+			email: email.current.value?email.current.value:account.email
 		};
 		await dispatch(fetchChangeProfileAC(change));
 		console.log(change);
