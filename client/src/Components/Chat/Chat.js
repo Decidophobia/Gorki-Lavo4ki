@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { sendMessageAC } from "../../redux/actionCreators";
 import Message from "./Message";
 import styles from "./Chat.module.css";
+import { useParams } from 'react-router-dom';
 
-function Chat(room) {
+function Chat() {
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const chat = useSelector((store) => store.chat.messages);
   const username = JSON.parse(localStorage.getItem("name"));
+  const room = useParams().coordId
   const messageText = (e) => {
     setMessage(e.target.value);
   };
