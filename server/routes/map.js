@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 	console.log(req.body.coord );
 	try {
     await Post.deleteOne({ coord: req.body.coord });
-		res.status(200).json('delete');
+		res.status(200).json(Math.random());
 	} catch (err) {
 		res.status(404).json('Post has been delete!');
 	}
