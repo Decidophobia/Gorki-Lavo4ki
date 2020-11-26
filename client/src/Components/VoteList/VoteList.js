@@ -1,36 +1,32 @@
-import React  from 'react';
+import React, { useLayoutEffect } from 'react';
 import Like from '../Like/Like';
 import Dislike from '../Dislike/Dislike';
 import { useSelector } from 'react-redux';
+import { votesOrCount, count } from './votelist.module.css';
 
-function VoteList({id}) {
+function VoteList({ id, post }) {
+  let isCheckedIn = false;
   const regexp = new RegExp(/"/gm);
-  const likesDislikes = useSelector(store => store.posts)
-  const userId = localStorage.getItem('userId').replace(regexp, '')
-  //результат сравнения по юзер айди в массиве лайков/дизлайков всех постов - выводит тру или фолс
-  const dislikeRes = likesDislikes.map(el =>  el.dislikes.some(id => id == userId));
-  const likeRes = likesDislikes.map(el => el.likes.some(id => id == userId))
-//подсчет длины массивов лайков/дизлайков - выводит массив с цифрами по всем постам
-  const countLikes = likesDislikes.map(el => el.likes.length)
-  console.log(countLikes);
+  const userId = localStorage.getItem('userId').replace(regexp, '');
 
-  const countDislikes = likesDislikes.map(el => el.dislikes.length)
-  console.log(countDislikes);
+  const dislikeRes = post && post.dislikes.some((id) => id == userId);
+  const likeRes = post && post.likes.some((id) => id == userId);
 
-  //тут должна быть проверка на повторяющегося юзера в конкретном посте
+  isCheckedIn = dislikeRes || likeRes;
 
+  const countLikes = post.likes.length;
+  const countDisikes = post.dislikes.length;
 
-  //
-	return (
-		<div>
-			Vote list
-
-<Like id={id}/>
-<Dislike id={id}/>
-			{/* { vote && vote.map(el => <Like el={ el.like }/>, <Dislike el={ el.dislike }/>) } */}
-
-		</div>
-	);
+  return (
+    <>
+      <div>Likes: {countLikes}</div>
+      <div>Dislikes: {countDisikes}</div>
+      <div className={isCheckedIn ? count : votesOrCount}>
+        <Like id={id} />
+        <Dislike id={id} />
+      </div>
+    </>
+  );
 }
 
 export default VoteList;

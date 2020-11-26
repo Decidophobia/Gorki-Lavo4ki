@@ -12,7 +12,7 @@ function Post({post}) {
 			<img src={ post.photo } style={ {width: '50%', heigh: '35%'} }/>
       <div>Адрес: {post.adress}</div>
 			<div>Комментарии: <CommentsList key={post._id} id={ post._id } comments={post.comments} /> <br/> <CommentForm id={post._id} /></div>
-      <div> <VoteList key={post._id} id={ post._id } /> </div>
+      <div> <VoteList key={post._id} id={ post._id } post={post}/> </div>
         
 		</div>
 	);

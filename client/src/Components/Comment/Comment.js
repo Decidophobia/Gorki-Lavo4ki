@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Comment({el}) {
-	console.log(el);
+	// console.log(el);
 
 	return (
 		<div>

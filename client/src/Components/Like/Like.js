@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { fetchLikesAC } from '../../redux/actionCreators';
 
 function Like({ id }) {
-  // console.log(id);
   const regexp = new RegExp(/"/gm);
   const userId = localStorage.getItem('userId').replace(regexp, '')
   const dispatch = useDispatch();
