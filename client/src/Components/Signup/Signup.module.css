@@ -21,15 +21,18 @@ body {
   animation-duration: 3s;
   animation-name: slidein;
 }
+
 .formBox {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-top: 15px;
 }
+
 .aboutUs {
   padding-left: 10px;
 }
+
 .textAboutUs {
   font-size: 18px;
 }
@@ -55,6 +58,7 @@ body {
   box-shadow: 0 0 2px #6c8a5c;
   color: #307113;
   border-radius: 5px 5px 5px 5px;
+  cursor: pointer;
 }
 
 .mainInput {
