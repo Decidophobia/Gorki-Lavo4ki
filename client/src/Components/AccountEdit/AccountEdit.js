@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import ModalWindow from '../AccountModal/AccountModal.js';
-import Modal from 'react-modal';
-import styles from './AccountEdit.module.css'
+import React, { useState } from "react";
+import ModalWindow from "../AccountModal/AccountModal.js";
+import Modal from "react-modal";
+import styles from "./AccountEdit.module.css";
 
 function AccountEdit(props) {
-const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
     console.log(modalIsOpen);
@@ -13,15 +13,20 @@ const [modalIsOpen, setIsOpen] = useState(false);
     setIsOpen(false);
   }
 
-    return (
-
-<>
-       <div className={styles.editBtn}><div onClick={openModal}>edit</div></div>
-        <Modal isOpen={modalIsOpen} onRequestClose={closeModal} >
-          <ModalWindow closeModal={closeModal} />
-        </Modal>
-</>
-    );
+  return (
+    <>
+      <div className={styles.editBtn}>
+        <div onClick={openModal}>edit</div>
+      </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        className={styles.modalWind}
+      >
+        <ModalWindow closeModal={closeModal} />
+      </Modal>
+    </>
+  );
 }
 
 export default AccountEdit;
