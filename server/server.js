@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path')
 
 const mongoose = require('mongoose');
 require('dotenv').config();
@@ -28,6 +29,10 @@ async function startServer() {
 	}
 
 }
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 startServer();
 
