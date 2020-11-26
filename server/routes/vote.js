@@ -2,7 +2,6 @@ const router = require('express').Router();
 const Post = require('../models/Post');
 
 router.post('/likes', async (req, res) => {
-  console.log(req.body);
   try {
     const postTolike = await Post.findOne({ _id: req.body.id });
 
@@ -16,7 +15,6 @@ router.post('/likes', async (req, res) => {
 });
 
 router.post('/dislikes', async (req, res) => {
-  // console.log(req.body);
   try {
     const postTolike = await Post.findOne({ _id: req.body.id });
     await postTolike.dislikes.push(req.body.userId);
