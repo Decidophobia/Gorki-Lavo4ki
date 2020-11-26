@@ -38,16 +38,15 @@ function MapPage() {
   const coordForStaticPlacemark = useSelector((store) => store.coords);
 
  const fethRemove = (el)=> {
-   return console.log(el);
-  //   fetch('/map', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-type': 'application/json',
-  //   },
-  //   body: JSON.stringify(el),
-  // })
-  //   .then((res) => res.json())
-  //   .then((result) => setDeletePlacemark(result));
+    fetch('/map', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(el),
+  })
+    .then((res) => res.json())
+    .then((result) => setDeletePlacemark(result));
 }
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -141,6 +140,7 @@ function MapPage() {
                     iconImageHref:'http://localhost:3000/place.svg',
                     iconImageSize: [60, 70],
                     iconImageOffset: [-20, -20],
+                    shadow:true
                   }}
                 />
               ))}

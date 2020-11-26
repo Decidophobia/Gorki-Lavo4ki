@@ -1,16 +1,8 @@
-import React, { useEffect } from "react";
-import styles from "./District.module.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styles from './District.module.css';
+import { Link } from 'react-router-dom';
 
 function District() {
-  // useEffect(() => {
-  //   fetch(
-  //     'https://geocode-maps.yandex.ru/1.x/?apikey=9c754c0b-5e74-4f99-9f5c-6d43b3daa95d?format=json&callback=my_function&geocode=Москва, улица Новый Арбат, дом 24'
-  //   )
-  //     .then((resp) => resp.json())
-  //     .then((data) => console.log(data));
-  // }, []);
-
   return (
     <div className={styles.boxMapWrapper}>
       <div className={styles.boxMap}>
@@ -52,27 +44,62 @@ function District() {
               <span className={styles.district}>Адмиралтейский</span>
             </div>
           </Link>
-          <div className={styles.mapItem6}>
-            <span className={styles.district}>Кировский</span>
-          </div>
-          <div className={styles.mapItem7}>
-            <span className={styles.district}>Московский</span>
-          </div>
-          <div className={styles.mapItem8}>
-            <span className={styles.district}>Фрунзенский</span>
-          </div>
-          <div className={styles.mapItem9}>
-            <span className={styles.district}>Невский</span>
-          </div>
-          <div className={styles.mapItem10}>
-            <span className={styles.district}>Красногвардейский</span>
-          </div>
-          <div className={styles.mapItem11}>
-            <span className={styles.district}>Калининский</span>
-          </div>
-          <div className={styles.mapItem12}>
-            <span className={styles.district}>Выборгский</span>
-          </div>
+          <Link
+            className={styles.testLink}
+            to="/map/:59.876231736709144,30.25765876744037"
+          >
+            <div className={styles.mapItem6}>
+              <span className={styles.district}>Кировский</span>
+            </div>
+          </Link>
+          <Link
+            className={styles.testLink}
+            to="/map/:59.85188679937314,30.321516799666927"
+          >
+            <div className={styles.mapItem7}>
+              <span className={styles.district}>Московский</span>
+            </div>
+          </Link>
+          <Link
+            className={styles.testLink}
+            to="/map/:59.869672449657564,30.391554641463816"
+          >
+            <div className={styles.mapItem8}>
+              <span className={styles.district}>Фрунзенский</span>
+            </div>
+          </Link>
+          <Link
+            className={styles.testLink}
+            to="/map/:59.882431665486635,30.464506076416942"
+          >
+            <div className={styles.mapItem9}>
+              <span className={styles.district}>Невский</span>
+            </div>
+          </Link>
+          <Link
+            className={styles.testLink}
+            to="/map/:59.96481434436298,30.458497928223586"
+          >
+            <div className={styles.mapItem10}>
+              <span className={styles.district}>Красногвардейский</span>
+            </div>
+          </Link>
+          <Link
+            className={styles.testLink}
+            to="/map/:59.99758960674073,30.39412491186616"
+          >
+            <div className={styles.mapItem11}>
+              <span className={styles.district}>Калининский</span>
+            </div>
+          </Link>
+          <Link
+            className={styles.testLink}
+            to="/map/:60.05075572433365,30.328757991380666"
+          >
+            <div className={styles.mapItem12}>
+              <span className={styles.district}>Выборгский</span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
