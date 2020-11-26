@@ -1,4 +1,4 @@
-import { GET_POSTS, ADD_POST } from '../actionTypes';
+import { GET_POSTS, ADD_POST, ADD_COMMENT } from '../actionTypes';
 const initialState = {
   posts: [],
   
@@ -10,8 +10,8 @@ export function postReducer(state = initialState, action) {
       return  action.payload;
     case ADD_POST:
       return [...state,action.payload];
-      case 'ADD_COMMENT':
-        // console.log(action);
+      case ADD_COMMENT:
+      
         const updatedPostArr = state.map(el => {
  
           if(el._id === action.payload.postId){
@@ -20,7 +20,7 @@ export function postReducer(state = initialState, action) {
           }else{
             return el
           }})
-          // console.log(updatedPostArr);
+         
      return updatedPostArr;
     default:
       return state;

@@ -9,7 +9,6 @@ import {
 	ADD_LIKE,
 	ADD_DISLIKE,
 	ADD_COMMENT,
-	GET_COMMENT,
 	GET_COORDS,
 	CHANGE_PROFILE
 } from './actionTypes';
@@ -212,11 +211,6 @@ export const addCommentsAC = (payload) => ({
 	payload,
 });
 
-// export const getCommentsAC = (payload) => ({
-// 	type: GET_COMMENT,
-// 	payload,
-// });
-
 // add comments to DB
 export const fetchAddCommentsAC = (payload) => {
 	return (dispatch) => {
@@ -228,18 +222,9 @@ export const fetchAddCommentsAC = (payload) => {
 			body: JSON.stringify(payload),
 		})
 			.then((res) => res.json())
-			.then((data) => dispatch({type:'ADD_COMMENT',payload:{comment:data.comment,postId:payload.postId}})); //отправляем назад для ререндеринга
+			.then((data) => dispatch({type: ADD_COMMENT, payload:{comment:data.comment,postId:payload.postId}})); //отправляем назад для ререндеринга
 	};
 };
-
-//get comments from DB
-// export const fetchGetCommentsAC = (payload) => {
-// 	return (dispatch) => {
-// 		fetch('/comments/getComments')
-// 			.then((res) => res.json())
-// 			.then((comment) => dispatch(getCommentsAC(comment)));
-// 	};
-// };
 
 export const fetchChangeProfileAC = (payload) => {
 	return (dispatch) => {
