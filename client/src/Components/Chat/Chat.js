@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { sendMessageAC } from "../../redux/actionCreators";
 import Message from "./Message";
 import styles from "./Chat.module.css";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 function Chat() {
   const [message, setMessage] = useState("");
@@ -12,7 +12,7 @@ function Chat() {
   const dispatch = useDispatch();
   const chat = useSelector((store) => store.chat.messages);
   const username = JSON.parse(localStorage.getItem("name"));
-  const room = useParams().coordId
+  const room = useParams().coordId;
   const messageText = (e) => {
     setMessage(e.target.value);
     // setWrite('Печатает')
@@ -31,21 +31,18 @@ function Chat() {
       dispatch(sendMessageAC(message));
     });
     socket.emit("CONNECT_ROOM", room);
-        
   }, []);
 
-    useEffect(() => {
-
-    socket.emit("WRITE_MESSAGE", username, room)
+  useEffect(() => {
+    socket.emit("WRITE_MESSAGE", username, room);
     socket.on("WRITE_MESSAGE:CLIENT", (user) => {
-    setWrite(`${user} печатает...`)
-    setTimeout(() => {
-      setWrite('')
-    }, 2000);
- 
-    console.log(user);
-    });
+      setWrite(`${user} печатает...`);
+      setTimeout(() => {
+        setWrite("");
+      }, 2000);
 
+      console.log(user);
+    });
   }, [message]);
   return (
     <div className={styles.chatContainer}>

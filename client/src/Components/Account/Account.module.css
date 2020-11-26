@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&display=swap");
 
 .container {
   font-family: sans-serif;
@@ -16,6 +16,7 @@
   box-shadow: 8px 7px 5px #24242445;
   animation-duration: 1.5s;
   animation-name: left;
+  padding-bottom: 20px;
 }
 
 .profInfo {
@@ -40,8 +41,7 @@
 }
 
 .profilTitleName {
-  font-family: 'Comfortaa',
-    cursive;
+  font-family: "Comfortaa", cursive;
   font-size: 3rem;
   font-weight: 700;
   color: #393838;
@@ -50,9 +50,8 @@
 .profilTitleStatus {
   margin-top: 5px;
   font-size: 2.5rem;
-  font-family: 'Caveat',
-    cursive;
-  color: #f47c7c
+  font-family: "Caveat", cursive;
+  color: #f47c7c;
 }
 
 .profilTitleEdit {
@@ -71,7 +70,7 @@
   flex-wrap: wrap;
 }
 
-.profilData>div {
+.profilData > div {
   display: flex;
   margin-top: 10px;
   width: 50%;
@@ -81,11 +80,11 @@
   width: 20%;
   font-size: 1.5rem;
   font-weight: 300;
-  color: #8b8b8b
+  color: #8b8b8b;
 }
 
 .profilData .text {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-size: 1.5rem;
   font-weight: 700;
   color: #444444;
@@ -118,7 +117,7 @@
 
 .mapArea .link {
   font-size: 1.4rem;
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   padding-left: 30px;
   transition: 0.4s ease;
 }
@@ -156,10 +155,10 @@
 
 @keyframes bottom {
   to {
-    bottom: 0
+    bottom: 0;
   }
 
   from {
-    bottom: -200px
+    bottom: -200px;
   }
 }
