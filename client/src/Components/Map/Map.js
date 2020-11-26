@@ -25,7 +25,6 @@ async function fetchOnGeoCod(url, setFunc) {
   } catch (error) {
     
   }
- 
 }
 
 function MapPage() {
@@ -38,16 +37,17 @@ function MapPage() {
   let { coordId } = useParams();
   const coordForStaticPlacemark = useSelector((store) => store.coords);
 
-  const fethRemove = (el)=> {
-    fetch('/map', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify(el),
-  })
-    .then((res) => res.json())
-    .then((result) => setDeletePlacemark(result));
+ const fethRemove = (el)=> {
+   return console.log(el);
+  //   fetch('/map', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-type': 'application/json',
+  //   },
+  //   body: JSON.stringify(el),
+  // })
+  //   .then((res) => res.json())
+  //   .then((result) => setDeletePlacemark(result));
 }
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -65,12 +65,6 @@ function MapPage() {
   useEffect(() => {
     dispatch(fetchGetCordsAC());
   }, [placemark, deletePlacemark]);
-
-  const removePlacemark = (placemark) => {
-    setPlaceMark((prev) => {
-      return prev.filter((place ) => place.coord !== placemark.coord)
-    }) 
-  }
 
   return (
     <>
@@ -129,7 +123,7 @@ function MapPage() {
             {coordForStaticPlacemark &&
               coordForStaticPlacemark.map((el, index) => (
                 <Placemark
-                 onClick={()=> console.log(el.coord)}
+                onClick={null}
                  onContextmenu={()=> {
                    alert('Точно хотите удалить ?')
                   return fethRemove(el)
@@ -137,11 +131,10 @@ function MapPage() {
                   key={index}
                   geometry={el.coord[0]}
                   properties={{
-                    // iconContent: "Грязюка",
                     balloonContentHeader: `<span class="description">${el.address}</span>`,
                     balloonContentBody: `<span class="description">${el.description}</span>
                     <img src="${el.photo}" class="myclass" style="width: 50%; heigh: 35%"/>
-                    `,
+                    <p>*Что бы удалить проект, кликните правой кнопкой мыши по отметки Вашего проекта</p>`
                   }}
                   options={{
                     iconLayout: 'default#image',
@@ -155,8 +148,7 @@ function MapPage() {
           <GeolocationControl options={{ float: 'left' }} />
         </Map>
         {/* <Chat /> */}
-      </div>
-
+      </div> 
       <div>
         <Modal
           isOpen={modalIsOpen}
