@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import {useDispatch} from 'react-redux';
 import {fetchAddCommentsAC} from '../../redux/actionCreators';
 
-const regexp = new RegExp(/\"/gm);
+const regexp = new RegExp(/"/gm);
 
 function CommentForm(props) {
 	// console.log(props.id);

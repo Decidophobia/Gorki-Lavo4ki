@@ -9,7 +9,8 @@ module.exports = function (app) {
 	const postRoute = require('../routes/post');
 	const mapRoute = require('../routes/map');
 	const accountRoute = require('../routes/account');
-	const commentRoute = require('../routes/comments');
+  const commentRoute = require('../routes/comments');
+  const voteRoute = require('../routes/vote')
 
 	// app.use(cors());
 	app.use(passport.initialize());
@@ -26,5 +27,5 @@ module.exports = function (app) {
 	app.use('/map', mapRoute);
 	app.use('/account', accountRoute);
 	app.use('/comments', commentRoute);
-
+  app.use('/vote', voteRoute)
 };

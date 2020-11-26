@@ -179,6 +179,34 @@ export const addDislikeAC = (payload) => ({
 	payload,
 });
 
+export const fetchLikesAC = (payload) => {
+  return (dispatch) => {
+    fetch('/vote/likes', {
+      method: 'POST',
+			headers: {
+				'Content-type': 'application/json',
+			},
+			body: JSON.stringify(payload),
+    })
+    .then(res => res.json())
+    .then(like => console.log(like))
+  }
+}
+
+export const fetchDislikesAC = (payload) => {
+  return (dispatch) => {
+    fetch('/vote/dislikes', {
+      method: 'POST',
+			headers: {
+				'Content-type': 'application/json',
+			},
+			body: JSON.stringify(payload),
+    })
+    .then(res => res.json())
+    .then(dislike => console.log(dislike))
+  }
+}
+
 export const addCommentsAC = (payload) => ({
 	type: ADD_COMMENT,
 	payload,
