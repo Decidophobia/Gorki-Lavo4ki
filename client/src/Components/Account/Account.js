@@ -26,27 +26,28 @@ function Account(props) {
         </div>
         <div className={style.profInfo}>
             <div className={style.profilTitle}>
-            <div className={style.profilTitleName}>{/*{account.name}*/} Александр Желтоногов</div>
+            <div className={style.profilTitleName}>{account.fullName} {account.fullSurname} </div>
             <div className={style.profilTitleStatus}>{account.status ? account.status: "дизайнер"}</div>
         </div>
                   <div className={style.profilData}>
+                            <div className={style.city}>
+                                <div className={style.title}>City</div>
+                                <div className={style.text}>{account.city}</div>
+                            </div>
                               <div className={style.email}>
                                 <div className={style.title}>Email</div>
                                 <div className={style.text}>{account.email}</div>
+                            </div>
+                            <div className={style.area}>
+                                <div className={style.title}>Area</div>
+                                <div className={style.text}>{account.area}</div>
                             </div>
                             <div className={style.phone}>
                                 <div className={style.title}>Phone</div>
                                 <div className={style.text}>{account.phone}</div>
                             </div>
-                            <div className={style.city}>
-                                <div className={style.title}>City</div>
-                                <div className={style.text}>{account.city} Санкт-Петербург</div>
-                            </div>
-                            <div className={style.area}>
-                                <div className={style.title}>Area</div>
-                                <div className={style.text}>{account.area} Приморский</div>
-                            </div>
                   </div>
+                    <AccountEdit/>
         </div>
 
 
@@ -68,7 +69,7 @@ function Account(props) {
           <div className={style.link} onClick={()=>shareCoordinates(allArea.centralni)}>Центральный</div>
         </div>
       </div>
-      <AccountEdit/>
+    
     </div>
   );
 }

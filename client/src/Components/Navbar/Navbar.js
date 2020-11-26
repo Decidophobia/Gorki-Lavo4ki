@@ -1,27 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link} from "react-router-dom";
 import styles from "./Navbar.module.css";
-//распишем все линки на страницы, пока только на рут
-
+import {Logout} from '../Logout/Logout'
 function Navbar(props) {
   const user = localStorage.getItem('name')
-  console.log(user);
+  const [auth, setAuth] = useState(user)
+
+  const logoutClick = () => {
+    localStorage.clear();
+    window.location.replace('/')
+  };
+  useEffect(()=>{
+    if (user) setAuth(true)
+    else setAuth(false)
+  },[user])
   return (
     <div className={styles.navbarContainer}>
-      <div className={styles.navbarItem}>
-        <Link to="/">Home</Link>
-      </div>
-      <div className={styles.navbarItem}>
-        <Link to="/District">District</Link>
-      </div>
-      <div className={styles.navbarItem}>
-        <Link to="/login"> Sign in</Link>
-      </div>
-      <div className={styles.navbarItem}>
-        <Link to="/account"> Account</Link>
-      </div>
-      {user?<div className={styles.navbarItem}><Link to="/blog"> Blog</Link></div>:null}
-    </div>
+      {auth? <div className={styles.navbarItem}><Link to="/district">Home</Link></div>:null}
+     {!auth? <div className={styles.navbarItem}><Link to="/login"> Sign in</Link></div>:null}
+     {auth?<div className={styles.navbarItem}><Link to="/account"> Account</Link></div>:null}
+     {auth?<div className={styles.navbarItem}><Link to="/blog"> Blog</Link></div>:null}
+
+     {auth?
+            <div className={styles.navbarItem}><Link to="/" onClick={logoutClick}>Logout</Link></div>
+        :
+            <div className={styles.navbarItem}><Link to="/">Registration</Link></div>
+      }
+     
+     </div>
   );
 }
 

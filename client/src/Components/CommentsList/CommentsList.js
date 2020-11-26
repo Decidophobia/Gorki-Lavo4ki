@@ -15,7 +15,7 @@ function CommentsList(props) {
 
 	return (
 		<div>
-			{ props.comments.length >= 1 ? props.comments.map(el => <Comment el={ el }/>) : null }
+			{ props.comments.length >= 1 ? props.comments.map(el => <Comment key={el._id} el={ el }/>) : null }
 		</div>
 	);
 }

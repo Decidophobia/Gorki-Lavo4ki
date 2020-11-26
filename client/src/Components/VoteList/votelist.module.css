@@ -1,0 +1,11 @@
+.votesOrCount{
+  background-color: rgb(47, 118, 180);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.count{
+  visibility: hidden;
+}
+
+
