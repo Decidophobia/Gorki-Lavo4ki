@@ -188,7 +188,9 @@ export const fetchLikesAC = (payload) => {
 			body: JSON.stringify(payload),
     })
     .then(res => res.json())
-    .then(like => console.log(like))
+    .then(res => {
+      dispatch(addLikeAC(res.postTolike))
+    })
   }
 }
 
@@ -202,7 +204,7 @@ export const fetchDislikesAC = (payload) => {
 			body: JSON.stringify(payload),
     })
     .then(res => res.json())
-    .then(dislike => console.log(dislike))
+    .then(res => dispatch(addDislikeAC(res.postTolike)))
   }
 }
 

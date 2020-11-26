@@ -12,7 +12,6 @@ router.post('/addComment', async (req, res) => {
 		const commentToPost = await Post.findOne({_id: req.body.postId});
 		await commentToPost.comments.push(comment.id);
     await commentToPost.save();
-    // const allPosts = await Post.find({})
 		res.status(200).json({comment, message: 'Comment has been created!'});
 	} catch (err) {
 		console.log(err);

@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Comment from '../Comment/Comment';
-import { useSelector } from 'react-redux';
-// import {fetchGetCommentsAC} from '../../redux/actionCreators';
-// import {store} from '../../redux/store';
 
 function CommentsList(props) {
-  
-  const comment = useSelector(store => store.posts);
   const [state, setState] = useState(props);
   useEffect(() => {
     setState(props);
-  }, []);
+  }, [props]);
 
   return (
     <div>

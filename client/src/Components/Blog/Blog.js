@@ -11,7 +11,7 @@ function Blog(props) {
   },[dispatch]);
   
   return <div>
-    {posts.length && posts.map(post => <Post key={post._id} post={post}/>)}
+    {posts?.length && posts.map(post => <Post key={post._id} post={post}/>)}
   </div>;
 }
 
