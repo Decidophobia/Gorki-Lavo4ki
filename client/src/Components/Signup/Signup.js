@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { fetchAddUserAC } from "../../redux/actionCreators";
 import styles from "./Signup.module.css";
+import {Link} from 'react-router-dom'
 
 export const Signup = () => {
   const dispatch = useDispatch();
@@ -70,7 +71,7 @@ export const Signup = () => {
             <button className={styles.registrationBtn} type="submit">
               Регистрация
             </button>
-            <button className={styles.loginBtn}>Войти</button>
+            <Link to="/login"><button className={styles.loginBtn}>Войти</button></Link>
           </div>
         </form>
       </div>

@@ -54,9 +54,13 @@ export const fetchLoginUserAC = (payload) => {
 			.then((res) => res.json())
 			.then((result) => {
 				dispatch(loginUserAC({result}));
+			if (!result.message){
 				localStorage.setItem('token', JSON.stringify(result.token));
 				localStorage.setItem('name', JSON.stringify(result.name));
 				localStorage.setItem('userId', JSON.stringify(result.userId));
+				}else{
+					console.log("Неверно");
+				}
 			});
 	};
 };
