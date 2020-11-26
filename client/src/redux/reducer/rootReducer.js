@@ -5,8 +5,6 @@ import {loginReducer} from './loginReducer';
 import {chatReducer} from './chatReducer';
 import {postReducer} from './postReducer';
 import {accountReducer} from './accountReducer';
-import {voteReducer} from './voteReducer';
-import {commentReducer} from './commentReducer';
 import {coordsReducer} from './coordsReducer';
 
 
@@ -16,7 +14,5 @@ export const rootReducer = combineReducers({
 	chat: chatReducer,
 	posts: postReducer,
 	account: accountReducer,
-	vote: voteReducer,
-	comment: commentReducer,
 	coords: coordsReducer,
 });

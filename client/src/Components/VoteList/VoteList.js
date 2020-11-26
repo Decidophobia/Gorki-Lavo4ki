@@ -1,4 +1,3 @@
-import React, { useLayoutEffect } from 'react';
 import Like from '../Like/Like';
 import Dislike from '../Dislike/Dislike';
 import { useSelector } from 'react-redux';
@@ -6,8 +5,7 @@ import { votesOrCount, count } from './votelist.module.css';
 
 function VoteList({ id, post }) {
   let isCheckedIn = false;
-  const regexp = new RegExp(/"/gm);
-  const userId = localStorage.getItem('userId').replace(regexp, '');
+  const userId = JSON.parse(localStorage.getItem('userId'))
 
   const dislikeRes = post && post.dislikes.some((id) => id == userId);
   const likeRes = post && post.likes.some((id) => id == userId);
