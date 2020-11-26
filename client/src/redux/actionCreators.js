@@ -9,7 +9,7 @@ import {
 	ADD_LIKE,
 	ADD_DISLIKE,
 	ADD_COMMENT,
-	// GET_COMMENT,
+	GET_COMMENT,
 	GET_COORDS,
 	CHANGE_PROFILE
 } from './actionTypes';
@@ -114,7 +114,7 @@ export const fetchAddPostAC = (payload) => {
 			body: JSON.stringify(payload),
 		})
 			.then((res) => res.json())
-			.then((data) => console.log(data));
+			.then((data) =>dispatch(addPostAC(data))); // чтобы посты отрисовывались сразу после добавления - их нужно класть и на бек и в редьюсер
 	};
 };
 
@@ -228,20 +228,14 @@ export const fetchAddCommentsAC = (payload) => {
 			body: JSON.stringify(payload),
 		})
 			.then((res) => res.json())
-			.then((data) => console.log(data));
+			.then((data) => dispatch({type:'ADD_COMMENT',payload:{comment:data.comment,postId:payload.postId}})); //отправляем назад для ререндеринга
 	};
 };
 
 //get comments from DB
 // export const fetchGetCommentsAC = (payload) => {
 // 	return (dispatch) => {
-// 		fetch('/comments/getComments', {
-// 			method: 'POST',
-// 			headers: {
-// 				'Content-type': 'application/json',
-// 			},
-// 			body: JSON.stringify(payload),
-// 		})
+// 		fetch('/comments/getComments')
 // 			.then((res) => res.json())
 // 			.then((comment) => dispatch(getCommentsAC(comment)));
 // 	};
