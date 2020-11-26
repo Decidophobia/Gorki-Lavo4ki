@@ -1,20 +1,22 @@
 import CommentsList from '../CommentsList/CommentsList';
 import CommentForm from '../CommentForm/CommentForm';
 import VoteList from '../VoteList/VoteList';
-import { useEffect } from 'react';
-
+import style from './Post.module.css'
 function Post({post}) {
-
-
+	const img = '/img/'+Math.floor(0.5*(Math.random()*6))+'.jpg'
 	return (
-		<div style={ {border: 'solid black', width: '30%', height: '40%'} }>
-			<div>Автор: { post.authorID }</div>
-			<div>Название проекта: { post.title }</div>
-			<div>Описание проекта: { post.description }</div>
-			<img src={ post.photo } style={ {width: '50%', heigh: '35%'} }/>
-      <div>Адрес: {post.address}</div>
-			<div>Комментарии: <CommentsList key={post._id} id={ post._id } comments={post.comments} /> <br/> <CommentForm id={post._id} /></div>
-      <div> <VoteList key={post._id} id={ post._id } post={post}/> </div>
+		<div className={style.post}>
+			<img src={post.photo?  post.photo :img }/>
+			<div className={style.postText}>
+				<h2> { post.title }</h2>
+				<div className={style.adress}><span className={style.title}>Адрес:</span> {post.address}</div>
+				<div className={style.line}></div>
+				<div className={style.item}><span className={style.title} >Описание проекта:</span> <div className={style.description}>{ post.description }</div></div>
+				<div className={style.author}><span>Автор:</span> { post.authorID }</div>
+				<div className={style.line}></div>
+				<div className={style.item}><span className={style.title} >Комментарии:</span> <CommentsList key={post._id} id={ post._id } comments={post.comments} /> <br/> <CommentForm id={post._id} /></div>
+				<div> <VoteList key={post._id} id={ post._id } post={post}/> </div>
+			</div>
         
 		</div>
 	);

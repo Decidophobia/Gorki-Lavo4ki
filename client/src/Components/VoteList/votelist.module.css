@@ -1,11 +1,27 @@
-.votesOrCount{
-  background-color: rgb(47, 118, 180);
+.likes {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #857878;
 }
-.count{
-  visibility: hidden;
+
+.likes div {
+  display: flex;
+  align-items: center;
 }
 
 
+
+.count {
+    pointer-events: none;
+}
+
+img {
+  width: 50px;
+  display: block;
+  height: 50px;
+  margin-right: 20px;
+  margin-bottom: 12px;
+}
