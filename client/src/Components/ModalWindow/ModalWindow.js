@@ -54,17 +54,19 @@ function ModalWindow(props) {
     <>
       <div className={styles.contener}>
         <div className={styles.donwloadform}>
-          <form onSubmit={getDataFromForm}>
+          <form onSubmit={getDataFromForm} className={styles.form}>
             <input
               onChange={uploadImage}
               className={styles.inpdonwload}
               type="file"
               name="file"
               placeholder="Загрузите фотографию"
+              className={styles.fileInput}
             />
-            <button className={styles.close} onClick={props.closeModal}>
+            
+            {/* <button className={styles.close} onClick={props.closeModal}>
               X
-            </button>
+            </button> */}
             <input ref={title} type="text" placeholder="Название проекта" />
             <textarea
               className={styles.textdescription}
@@ -76,6 +78,9 @@ function ModalWindow(props) {
             <button type="submit" className={styles.save}>
               Cохранить
             </button>
+                      <span onClick={props.closeModal} className={styles.closeModal}>
+            x
+          </span>
           </form>
         </div>
       </div>
