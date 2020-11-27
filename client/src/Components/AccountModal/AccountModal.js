@@ -17,7 +17,6 @@ function AccountModal(props) {
   const phone = useRef();
   const email = useRef();
   const imgInput = useRef();
-  console.log(imgInput);
   const uploadImage = async (event) => {
     event.preventDefault();
     const files = event.target.files;

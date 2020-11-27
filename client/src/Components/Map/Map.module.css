@@ -1,9 +1,12 @@
 .modalWind {
   width: 100%;
-  height: 500px;
+  height: 100vh;
   background-color: rgba(255, 255, 255, 0);
   border: none;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* .containerWrap {
@@ -14,4 +17,3 @@
 .veryBigPapa {
   display: flex;
 }
-

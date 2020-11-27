@@ -24,7 +24,6 @@ function AccountMap({coordinates}) {
 },[coordinates])
   return (
     <>
-    {coord}
       <Map
         width={'790px'}
         height={'500px'}

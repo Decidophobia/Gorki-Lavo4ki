@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import {useDispatch} from 'react-redux';
 import {fetchAddCommentsAC} from '../../redux/actionCreators';
+import style from './CommentForm.module.css'
 
 const regexp = new RegExp(/"/gm);
 
@@ -22,10 +23,10 @@ function CommentForm(props) {
 		commentBody.current.value = '';
 	};
 	return (
-		<div>
-			<form onSubmit={ sendComment } action="">
-				<textarea ref={ commentBody } name="commentText" id="" cols="30" rows="10"/>
-				<button>Отправить</button>
+		<div className={style.container}>
+			<form onSubmit={ sendComment } action="" className={style.form}>
+				<textarea ref={ commentBody } name="commentText" placeholder="Комментарий..." cols="30" rows="6" className={style.text}/>
+				<button className={style.btn}>Отправить</button>
 			</form>
 		</div>
 	);

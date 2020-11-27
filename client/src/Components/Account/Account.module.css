@@ -12,7 +12,7 @@
   display: flex;
   position: relative;
   flex-wrap: wrap;
-  background: #ffffffa1;
+  background: #ffffffd6;
   box-shadow: 8px 7px 5px #24242445;
   animation-duration: 1.5s;
   animation-name: left;
@@ -70,7 +70,7 @@
   flex-wrap: wrap;
 }
 
-.profilData > div {
+.profilData>div {
   display: flex;
   margin-top: 10px;
   width: 50%;
