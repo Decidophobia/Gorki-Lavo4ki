@@ -19,7 +19,6 @@ function VoteList({ id, post }) {
   const countLikes = post.likes.length;
   const countDisikes = post.dislikes.length;
   //Перенос
-  const regexp = new RegExp(/"/gm);
   const dispatch = useDispatch()
   const likeClicked = (e) => {
     dispatch(fetchLikesAC({ id, userId }));

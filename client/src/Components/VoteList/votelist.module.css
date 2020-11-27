@@ -12,13 +12,16 @@
   align-items: center;
 }
 
+.votesOrCount {
+  cursor: pointer;
+}
 
 
 .count {
-    pointer-events: none;
+  pointer-events: none;
 }
 
-img {
+.container img {
   width: 50px;
   display: block;
   height: 50px;

@@ -32,15 +32,16 @@
   height: 800px;
   background: url("./map-gorki-lavo4ki.jpg") no-repeat;
   background-size: cover;
-  box-shadow: 0px 0px 50px 10px #6c8a5c;
-  margin: auto;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1),
+    0 0.67rem 2rem rgba(0, 0, 0, 0.15);
+  margin: 50px auto;
+  animation-duration: 1.5s;
+  animation-name: bottom;
 }
 
 .map {
   display: flex;
   color: #1c3e5c;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-family: 'Balsamiq Sans', cursive;
   font-size: 2rem;
   cursor: pointer;
@@ -125,4 +126,14 @@
 .boxMapWrapper {
   width: 100%;
   padding: 0;
+}
+
+@keyframes bottom {
+  to {
+    bottom: 0;
+  }
+
+  from {
+    bottom: -800px;
+  }
 }

@@ -3,7 +3,7 @@ import CommentForm from '../CommentForm/CommentForm';
 import VoteList from '../VoteList/VoteList';
 import style from './Post.module.css'
 function Post({post}) {
-	const img = '/img/'+Math.floor(0.5*(Math.random()*6))+'.jpg'
+	const img = '/img/'+Math.floor(Math.random()*6)+'.jpg'
 	return (
 		<div className={style.post}>
 			<img src={post.photo?  post.photo :img }/>

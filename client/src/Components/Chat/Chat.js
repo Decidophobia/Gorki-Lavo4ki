@@ -46,7 +46,7 @@ function Chat() {
   }, [message]);
   return (
     <div className={styles.chatContainer}>
-      <div>{write}</div>
+      <div className={styles.write}>{write}</div>
       <div className={styles.chatField}>
         {chat &&
           chat.map((oneMes, i) => (

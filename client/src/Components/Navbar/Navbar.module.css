@@ -1,10 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap");
+
 .navbarContainer {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  font-family: 'Caveat';
 }
+
 .navbarContainer .navbarItem {
   padding: 40px 15px;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 4rem;
+  font-family: 'Caveat';
+
+}
+
+.navbarContainer .navbarItem a {
+  text-decoration: none;
+  position: relative;
+  color: #f56c6c;
+  font-weight: 800;
+  text-shadow: 2px 2px 3px #161515ad;
+}
+
+.navbarContainer .navbarItem a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: #f56c6c;
+  width: 0%;
+  height: 5px;
+  border-radius: 5px;
+  transition: 0.2s;
+  margin: auto;
+  left: 0;
+  right: 0
+}
+
+.navbarContainer .navbarItem:hover a:after {
+  width: 100%;
+  transition: 0.2s;
 }

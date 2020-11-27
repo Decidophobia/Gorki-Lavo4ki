@@ -4,13 +4,22 @@ import { fetchGetUserAC } from "../../redux/actionCreators";
 import style from "./Account.module.css";
 import AccountMap from '../AccountMap/AccountMap'
 import AccountEdit from '../AccountEdit/AccountEdit'
+import Post from '../Post/Post'
 
 function Account(props) {
   let user = JSON.parse(localStorage.getItem("name"));
   let allArea = JSON.parse(localStorage.getItem("allAreaCoord"));
-  const [coordinates, setCoordinates] = useState([59.91806799340517,30.304899499999895])
-    const { account } = useSelector((store) => store);
 
+  const [coordinates, setCoordinates] = useState([59.91806799340517,30.304899499999895])
+  const { account } = useSelector((store) => store);
+
+  const {posts} = useSelector((store) => store);
+//   let positiveArr = posts.map(function(item) {
+// console.log(item);
+//   return item;
+
+// });
+//   console.log(positiveArr);
   function shareCoordinates(areaCoordinates){
       setCoordinates(()=>areaCoordinates)
   }
@@ -69,7 +78,6 @@ function Account(props) {
           <div className={style.link} onClick={()=>shareCoordinates(allArea.centralni)}>Центральный</div>
         </div>
       </div>
-    
     </div>
   );
 }
