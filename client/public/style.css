@@ -1,15 +1,19 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .wrapperDistrictPage {
-    display: flex;
-    justify-content: center
+  display: flex;
+  justify-content: center;
 }
 
 .myclass {
-    background: red;
-    padding: 15px;
+  width: 100% !important;
+  height: auto;
+}
+
+.description {
+  margin-top: 15px;
 }
