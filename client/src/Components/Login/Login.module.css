@@ -20,6 +20,9 @@
   height: 310px;
 }
 
+.loginBox h1 {
+  margin-bottom: 40px;
+}
 .registrationBtn {
   width: 100%;
   border: none;
@@ -31,6 +34,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 24px;
+  font-weight: 800;
   margin-top: 25px;
   cursor: pointer;
 }
@@ -41,7 +45,8 @@
 }
 .mainInput {
   width: 100%;
-  height: 30px;
+  font-size: 1.6rem;
+  padding: 10px;
   margin-top: 5px;
   border: none;
   outline: none;
